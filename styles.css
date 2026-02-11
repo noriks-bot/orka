@@ -59,12 +59,23 @@ ul, ol {
 
 /* ===== Announcement Bar ===== */
 .announcement-bar {
-  background-color: var(--color-text);
-  color: #fff;
-  padding: 8px 20px;
+  background: linear-gradient(46deg, rgba(0, 0, 0, 1) 31%, rgba(80, 125, 160, 1) 86%);
+  color: #fafafa;
+  padding: 0;
   text-align: center;
   font-size: 13px;
   font-weight: 500;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+@media (min-width: 1536px) {
+  .announcement-bar {
+    height: 56px;
+  }
 }
 
 .announcement-content {
@@ -72,10 +83,25 @@ ul, ol {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.announcement-content:hover {
+  animation-play-state: paused;
 }
 
 .announcement-icon {
   font-size: 16px;
+}
+
+.announcement-highlight {
+  color: #A3D3D9;
 }
 
 /* ===== Header ===== */
@@ -1439,7 +1465,7 @@ ul, ol {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 24px;
-  color: #fff;
+  color: var(--color-text);
   letter-spacing: -0.5px;
   margin-bottom: 16px;
   display: block;
