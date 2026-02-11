@@ -360,19 +360,24 @@
       }
     }
 
-    /* Media item: product__media card media */
-    .product__media {
-      flex: 0 0 100%;
-      scroll-snap-align: start;
+    /* Media item: product__media card media media--adapt_first flex w-full shrink-0 relative overflow-hidden */
+    .product__media,
+    .card.media {
+      display: flex;
+      width: 100%;
+      flex-shrink: 0;
       position: relative;
       overflow: hidden;
       border-radius: var(--rounded-card);
-      background-color: rgb(var(--color-foreground) / 0.03);
+    }
+    /* Mobile slider behavior */
+    .product__media {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
     }
     @media (min-width: 1024px) {
       .product__media { 
         flex: none;
-        border-radius: var(--rounded-card);
       }
     }
     /* First media hidden on XL (shows in preview instead) */
@@ -384,6 +389,10 @@
       width: 100%;
       aspect-ratio: 1;
       object-fit: cover;
+    }
+    /* Aspect ratio for media items */
+    .media--adapt_first {
+      aspect-ratio: var(--aspect-ratio, 1);
     }
     .product__media--video {
       position: relative;
@@ -1437,22 +1446,22 @@
             <div class="product__media-container">
               <!-- Media List: product__media-list flex gap-1 lg:grid lg:gap-4 xl:gap-5 grid-cols-2 -->
               <div class="product__media-list">
-                <div class="product__media xl-hidden">
+                <div class="product__media card media xl-hidden">
                   <img src="https://orykas.com/cdn/shop/files/BOXER-ULTRA-ABSORBANT.jpg?v=1770039699&width=972" alt="Product">
                 </div>
-                <div class="product__media">
+                <div class="product__media card media">
                   <img src="https://orykas.com/cdn/shop/files/IMAGE2-US.jpg?v=1770039699&width=972" alt="Features">
                 </div>
-                <div class="product__media">
+                <div class="product__media card media">
                   <img src="https://orykas.com/cdn/shop/files/COUCHE-US.jpg?v=1770039699&width=972" alt="7 Layers">
                 </div>
-                <div class="product__media">
+                <div class="product__media card media">
                   <img src="https://orykas.com/cdn/shop/files/FUITES-US.jpg?v=1770039699&width=972" alt="Leak Protection">
                 </div>
-                <div class="product__media">
+                <div class="product__media card media">
                   <img src="https://orykas.com/cdn/shop/files/SALLE-BAIN-US.jpg?v=1770039699&width=972" alt="Lifestyle">
                 </div>
-                <div class="product__media product__media--video">
+                <div class="product__media card media product__media--video">
                   <video 
                     playsinline 
                     muted 
@@ -1465,25 +1474,25 @@
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="currentColor"><path d="M34 17.5C34 18.33 33.57 19.1 32.87 19.52L9.54 33.66C9.16 33.89 8.75 34 8.33 34C7.94 34 7.54 33.9 7.18 33.69C6.45 33.27 6 32.49 6 31.64V3.36C6 2.51 6.45 1.73 7.18 1.31C7.91 0.89 8.81 0.9 9.54 1.34L32.87 15.48C33.57 15.9 34 16.67 34 17.5Z"/></svg>
                   </button>
                 </div>
-                <div class="product__media">
+                <div class="product__media card media">
                   <img src="https://orykas.com/cdn/shop/files/IMAGE3-US.jpg?v=1770039699&width=972" alt="Details">
                 </div>
-                <div class="product__media">
+                <div class="product__media card media">
                   <img src="https://orykas.com/cdn/shop/files/ABSORBTION-US.jpg?v=1770039699&width=972" alt="Absorption">
                 </div>
-                <div class="product__media">
+                <div class="product__media card media">
                   <img src="https://orykas.com/cdn/shop/files/COULEUR-US.jpg?v=1768405379&width=972" alt="Colors">
                 </div>
-                <div class="product__media">
+                <div class="product__media card media">
                   <img src="https://orykas.com/cdn/shop/files/ZONE-US.jpg?v=1770039699&width=972" alt="Zones">
                 </div>
-                <div class="product__media">
+                <div class="product__media card media">
                   <img src="https://orykas.com/cdn/shop/files/COUTURE-US_cf2c302c-7f86-498e-b6a8-bd86c48caf71.jpg?v=1770039699&width=972" alt="Stitching">
                 </div>
-                <div class="product__media">
+                <div class="product__media card media">
                   <img src="https://orykas.com/cdn/shop/files/LUCIEN-GRIS.jpg?v=1768405379&width=864" alt="Grey">
                 </div>
-                <div class="product__media">
+                <div class="product__media card media">
                   <img src="https://orykas.com/cdn/shop/files/LUCIEN-MARINE.jpg?v=1768405379&width=864" alt="Navy">
                 </div>
               </div>
