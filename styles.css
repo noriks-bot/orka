@@ -225,6 +225,9 @@ ul, ol {
 /* ===== Product Gallery ===== */
 .product-gallery {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .gallery-main {
@@ -236,23 +239,48 @@ ul, ol {
 
 .gallery-slider {
   display: flex;
-  transition: transform 0.4s ease;
+  gap: 4px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.gallery-slider::-webkit-scrollbar {
+  display: none;
 }
 
 .gallery-slide {
   flex: 0 0 100%;
+  scroll-snap-align: start;
   aspect-ratio: 1;
-  display: none;
-}
-
-.gallery-slide.active {
-  display: block;
 }
 
 .gallery-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+/* Desktop: 2-column grid */
+@media (min-width: 1024px) {
+  .gallery-slider {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    overflow: visible;
+  }
+  
+  .gallery-slide {
+    flex: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .gallery-slider {
+    gap: 20px;
+  }
 }
 
 .gallery-nav {
@@ -288,6 +316,13 @@ ul, ol {
   background: #fff;
 }
 
+/* Hide nav arrows on desktop grid view */
+@media (min-width: 1024px) {
+  .gallery-nav {
+    display: none;
+  }
+}
+
 .gallery-thumbnails {
   display: flex;
   gap: 8px;
@@ -321,6 +356,13 @@ ul, ol {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Hide thumbnails on desktop - all images visible in grid */
+@media (min-width: 1024px) {
+  .gallery-thumbnails {
+    display: none;
+  }
 }
 
 @media (min-width: 1024px) {
