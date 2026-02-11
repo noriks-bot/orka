@@ -5,11 +5,874 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Men's Washable Incontinence Boxer Briefs – ORKA</title>
   <meta name="description" content="Choose ORKA men's incontinence boxers. Enjoy washable, ultra-absorbent comfort, discreet style, and multiple colors for everyday confidence.">
-  <link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/0926/2671/4969/files/favicon.png?v=1746982011">
+  <link rel="icon" type="image/png" href="https://orykas.com/cdn/shop/files/NEW-FAVICON.png?crop=center&height=32&v=1759859323&width=32">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ===== CSS Reset & Variables ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --color-text: #171717;
+      --color-text-light: #666;
+      --color-background: #fff;
+      --color-accent: #A3D3D9;
+      --color-dark: #012840;
+      --color-border: rgba(0, 0, 0, 0.1);
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --page-width: 1500px;
+      --page-padding: 20px;
+      --border-radius: 10px;
+      --transition: 0.2s ease;
+    }
+
+    @media (min-width: 1024px) { :root { --page-padding: 36px; } }
+    @media (min-width: 1280px) { :root { --page-padding: 48px; } }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: var(--font-family); color: var(--color-text); background: var(--color-background); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    ul, ol { list-style: none; }
+
+    /* ===== Announcement Bar ===== */
+    .announcement-bar {
+      background: linear-gradient(46deg, #000 31%, #507DA0 86%);
+      color: #fafafa;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 500;
+      overflow: hidden;
+    }
+    @media (min-width: 1536px) { .announcement-bar { height: 56px; } }
+    .announcement-content {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      animation: marquee 20s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .announcement-highlight { color: var(--color-accent); }
+
+    /* ===== Header ===== */
+    .header {
+      position: sticky;
+      top: 0;
+      background: var(--color-background);
+      z-index: 100;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .header-container {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 12px var(--page-padding);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .menu-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+    }
+    .logo { display: flex; align-items: center; flex-shrink: 0; }
+    .logo-text {
+      font-weight: 700;
+      font-size: 24px;
+      color: #171717;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+    }
+    .main-nav { display: none; gap: 32px; }
+    .main-nav a { font-size: 15px; font-weight: 500; transition: color var(--transition); }
+    .main-nav a:hover { color: var(--color-accent); }
+    .header-icons { display: flex; align-items: center; gap: 8px; }
+    .icon-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: background var(--transition);
+    }
+    .icon-btn:hover { background: rgba(0,0,0,0.05); }
+    .cart-btn { position: relative; }
+    .cart-count {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      background: var(--color-text);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media (min-width: 1024px) {
+      .menu-toggle { display: none; }
+      .main-nav { display: flex; flex: 1; justify-content: center; }
+      .header-container { padding: 16px var(--page-padding); }
+    }
+
+    /* ===== Product Section - 3 Column Layout ===== */
+    .product-section {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 0 var(--page-padding);
+    }
+
+    .product-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Desktop: 3-column grid */
+    @media (min-width: 1280px) {
+      .product-container {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 20px;
+        align-items: start;
+        padding: 20px 0;
+      }
+    }
+
+    /* Tablet/Small Desktop: 2-column */
+    @media (min-width: 1024px) and (max-width: 1279px) {
+      .product-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        align-items: start;
+        padding: 20px 0;
+      }
+    }
+
+    /* ===== Main Preview Image (XL only - Left Column) ===== */
+    .product-preview {
+      display: none;
+      position: sticky;
+      top: 100px;
+    }
+    @media (min-width: 1280px) {
+      .product-preview {
+        display: block;
+      }
+    }
+    .product-preview img {
+      width: 100%;
+      border-radius: var(--border-radius);
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+
+    /* ===== Gallery Grid (Middle Column on XL) ===== */
+    .product-gallery {
+      width: 100%;
+    }
+
+    /* Mobile: Horizontal Slider */
+    .gallery-slider {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .gallery-slider::-webkit-scrollbar { display: none; }
+
+    .gallery-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+    }
+    .gallery-slide img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+
+    /* Desktop: 2-column grid */
+    @media (min-width: 1024px) {
+      .gallery-slider {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        overflow: visible;
+      }
+      .gallery-slide { flex: none; }
+      .gallery-slide img { border-radius: var(--border-radius); }
+    }
+
+    @media (min-width: 1280px) {
+      .gallery-slider { gap: 16px; }
+      /* Hide first image on XL - it's shown in preview */
+      .gallery-slide:first-child { display: none; }
+    }
+
+    @media (min-width: 1536px) {
+      .gallery-slider { gap: 20px; }
+    }
+
+    /* Thumbnails - Mobile/Tablet only */
+    .gallery-thumbnails {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+      gap: 8px;
+      padding: 12px 0;
+    }
+    .thumbnail {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      opacity: 0.6;
+      transition: all var(--transition);
+      cursor: pointer;
+    }
+    .thumbnail.active { border-color: var(--color-text); opacity: 1; }
+    .thumbnail:hover { opacity: 1; }
+    .thumbnail img { width: 100%; height: 100%; object-fit: cover; }
+    
+    @media (min-width: 1024px) {
+      .gallery-thumbnails { display: none; }
+    }
+
+    /* ===== Product Info (Right Column) ===== */
+    .product-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 0;
+    }
+    @media (min-width: 1024px) {
+      .product-info {
+        position: sticky;
+        top: 100px;
+        padding: 0;
+      }
+    }
+
+    /* Trust Badges */
+    .trust-badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: nowrap;
+    }
+    @media (max-width: 380px) { .trust-badges { flex-wrap: wrap; } }
+    
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 7px;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.25);
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #0f2a3d;
+      background: #fff;
+      white-space: nowrap;
+    }
+    .badge img { height: 12px; margin-right: 6px; }
+
+    /* Product Title */
+    .product-title {
+      font-size: clamp(22px, 1.5rem + 0.5vw, 32px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #0f2a3d;
+    }
+
+    /* Subtitle */
+    .product-subtitle { font-size: 14px; }
+
+    /* Price */
+    .price-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .price {
+      font-size: clamp(18px, 1.25rem, 24px);
+      font-weight: 600;
+      color: #0f2a3d;
+    }
+    .sale-badge {
+      display: inline-flex;
+      padding: 6px 12px;
+      background: #012840;
+      color: #fff;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* Description */
+    .product-description { font-size: 14px; line-height: 1.6; }
+    .separator { border: none; height: 1px; background: var(--color-border); margin: 0 0 12px; }
+    .more-text { display: none; }
+    .more-text.show { display: inline; }
+    .read-more-link { color: var(--color-accent); text-decoration: underline; font-size: 14px; }
+
+    /* USP Badges */
+    .usp-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+    .usp-item {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #FAFAFA;
+      border: 1px solid rgba(0,0,0,0.1);
+      font-size: 13px;
+      font-weight: 500;
+      color: #0f2a3d;
+      white-space: nowrap;
+    }
+
+    /* Size Help Link */
+    .size-help {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--color-text-light);
+      margin-top: 8px;
+    }
+    .size-help a { color: var(--color-accent); text-decoration: underline; }
+
+    /* Pack Selector Cards */
+    .pack-selector {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .pack-card {
+      position: relative;
+      border: 2px solid var(--color-border);
+      border-radius: 12px;
+      padding: 16px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition);
+      background: #fff;
+    }
+    .pack-card:hover { border-color: var(--color-text); }
+    .pack-card.active { border-color: var(--color-text); background: #f9f9f9; }
+    .pack-card .pack-badge {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-accent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 10px;
+      white-space: nowrap;
+    }
+    .pack-card .pack-qty { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .pack-card .pack-price { font-size: 14px; font-weight: 600; }
+    .pack-card .pack-original { font-size: 12px; color: #999; text-decoration: line-through; }
+    .pack-card .pack-save { font-size: 11px; color: #22c55e; font-weight: 600; margin-top: 4px; }
+
+    /* Size Selector */
+    .variant-selector { margin-top: 16px; }
+    .variant-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .variant-label { font-size: 14px; }
+    .variant-value { font-size: 14px; font-weight: 600; }
+    .size-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .size-btn {
+      min-width: 44px;
+      padding: 10px 14px;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      background: #fff;
+      transition: all var(--transition);
+    }
+    .size-btn:hover { border-color: var(--color-text); }
+    .size-btn.active { background: var(--color-text); color: #fff; border-color: var(--color-text); }
+
+    /* Color Selector */
+    .color-options { display: flex; gap: 12px; }
+    .color-btn {
+      width: 70px;
+      height: 70px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      padding: 0;
+      transition: all var(--transition);
+    }
+    .color-btn img { width: 100%; height: 100%; object-fit: cover; }
+    .color-btn:hover { transform: scale(1.02); }
+    .color-btn.active { border-color: var(--color-text); }
+
+    /* Add to Cart */
+    .add-to-cart-section { display: flex; gap: 12px; margin-top: 16px; }
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--color-border);
+      border-radius: 60px;
+      overflow: hidden;
+      min-height: 56px;
+    }
+    .qty-btn {
+      width: 44px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: background var(--transition);
+    }
+    .qty-btn:hover { background: rgba(0,0,0,0.05); }
+    .qty-input {
+      width: 40px;
+      height: 56px;
+      border: none;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 500;
+      font-family: inherit;
+      -moz-appearance: textfield;
+      background: transparent;
+    }
+    .qty-input::-webkit-outer-spin-button,
+    .qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    
+    .add-to-cart-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      min-height: 56px;
+      background: var(--color-text);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 60px;
+      transition: all var(--transition);
+    }
+    .add-to-cart-btn:hover { background: #333; transform: translateY(-1px); }
+
+    /* Reassurance Slider */
+    .reassurance-slider {
+      margin-top: 14px;
+      border-radius: 999px;
+      background: rgba(15,42,61,0.04);
+      border: 1px solid rgba(15,42,61,0.08);
+      overflow: hidden;
+    }
+    .reassurance-viewport { position: relative; overflow: hidden; }
+    .reassurance-track {
+      display: flex;
+      transition: transform 720ms cubic-bezier(.18,.95,.22,1);
+    }
+    .reassurance-item {
+      min-width: 100%;
+      padding: 11px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #0f2a3d;
+    }
+    .reassurance-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .reassurance-icon svg { width: 14px; height: 14px; }
+
+    /* Trust Badge */
+    .checkout-trust {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: #f4f4f4;
+      border-radius: var(--border-radius);
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .checkout-trust img { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* FOMO Section */
+    .fomo-section {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 14px;
+      padding: 16px;
+      margin-top: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      text-align: center;
+    }
+    .fomo-title { font-size: 16px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .fomo-badge {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      border-radius: 25px;
+      padding: 6px 18px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .fomo-text { font-size: 13px; opacity: 0.85; }
+
+    /* ===== Testimonials Section ===== */
+    .testimonials-section {
+      padding: 60px var(--page-padding);
+      max-width: var(--page-width);
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .testimonials-section.animate-in { opacity: 1; transform: translateY(0); }
+    
+    .section-title {
+      font-size: clamp(20px, 1.5rem + 0.25vw, 28px);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 32px;
+      color: #0f2a3d;
+    }
+    .testimonials-carousel {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    @media (min-width: 768px) {
+      .testimonials-section { padding: 80px var(--page-padding); }
+      .testimonials-carousel { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    }
+    .testimonial-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 9/16;
+      background: #f0f0f0;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
+    .testimonial-card video { width: 100%; height: 100%; object-fit: cover; }
+    .video-duration {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* ===== Absorption Section ===== */
+    .absorption-section {
+      padding: 80px var(--page-padding);
+      background: #f7f7f7;
+      text-align: center;
+    }
+    .absorption-header { max-width: 750px; margin: 0 auto; }
+    .wash-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      margin-bottom: 20px;
+    }
+    .wash-icon svg { color: var(--color-accent); width: 48px; height: 48px; }
+    .absorption-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+      margin-bottom: 16px;
+    }
+    .absorption-title {
+      font-size: clamp(26px, 2rem + 0.5vw, 40px);
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #0f2a3d;
+    }
+    .absorption-title em { font-style: normal; color: var(--color-accent); }
+    .absorption-text { font-size: 16px; color: var(--color-text-light); line-height: 1.7; }
+
+    /* ===== Video Section ===== */
+    .video-section {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 0 var(--page-padding) 60px;
+    }
+    .video-section video {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    /* ===== Benefits Section ===== */
+    .benefits-section {
+      padding: 80px var(--page-padding);
+      text-align: center;
+      max-width: var(--page-width);
+      margin: 0 auto;
+    }
+    .benefits-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+      margin-bottom: 16px;
+    }
+    .benefits-title {
+      font-size: clamp(26px, 2rem + 0.5vw, 36px);
+      font-weight: 700;
+      margin-bottom: 48px;
+      color: #0f2a3d;
+    }
+    .feature-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 767px) {
+      .feature-cards { grid-template-columns: 1fr; gap: 16px; }
+    }
+    .feature-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #0f2a3d;
+      aspect-ratio: 1;
+    }
+    .feature-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .feature-card:hover img { opacity: 1; transform: scale(1.05); }
+    .feature-card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 28px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    }
+    .feature-card-content h3 {
+      font-size: clamp(16px, 1.1rem + 0.25vw, 22px);
+      font-weight: 700;
+      color: #fff;
+      text-align: left;
+    }
+    .feature-card-btn {
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+    }
+    .feature-card-btn:hover { background: rgba(255,255,255,0.25); transform: scale(1.1); }
+
+    /* ===== Comparison Section ===== */
+    .product-comparison-section {
+      padding: 60px var(--page-padding);
+      background: #f7f7f7;
+      text-align: center;
+    }
+    .comparison-main-title { font-size: 28px; font-weight: 700; margin-bottom: 32px; }
+    .comparison-toggle { display: flex; justify-content: center; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; }
+    .toggle-btn {
+      padding: 14px 24px;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 60px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .toggle-btn:hover, .toggle-btn.active { background: var(--color-text); color: #fff; border-color: var(--color-text); }
+    .comparison-table {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .comparison-col {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px 24px;
+      flex: 1;
+      min-width: 280px;
+      max-width: 400px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .comparison-col.orykas { border: 2px solid var(--color-accent); box-shadow: 0 4px 24px rgba(163,211,217,0.3); }
+    .comparison-col img { width: 100%; max-width: 180px; border-radius: 12px; margin: 0 auto 20px; }
+    .comparison-col h3 { font-size: 20px; font-weight: 700; margin-bottom: 20px; color: #0f2a3d; }
+    .comparison-list { text-align: left; }
+    .comparison-list li { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-top: 1px solid rgba(0,0,0,0.06); font-size: 14px; color: #444; }
+    .comparison-list li:first-child { border-top: none; }
+    .icon-check { color: #22c55e; font-weight: 700; font-size: 16px; }
+    .icon-x { color: #ef4444; font-weight: 700; font-size: 16px; }
+
+    /* ===== Stats Section ===== */
+    .stats-section {
+      padding: 80px var(--page-padding);
+      background: #012840;
+      color: #fff;
+      text-align: center;
+    }
+    .stats-header { margin-bottom: 48px; }
+    .stats-label { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.6; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    @media (max-width: 767px) { .stats-grid { grid-template-columns: 1fr; gap: 32px; } }
+    .stat-card { padding: 24px; }
+    .stat-number { display: block; font-size: clamp(42px, 3rem + 1vw, 56px); font-weight: 700; color: var(--color-accent); margin-bottom: 16px; }
+    .stat-text { font-size: 15px; opacity: 0.85; line-height: 1.6; max-width: 280px; margin: 0 auto; }
+
+    /* ===== FAQ Section ===== */
+    .faq-section {
+      padding: 80px var(--page-padding);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .faq-title { font-size: clamp(28px, 2rem + 0.5vw, 36px); font-weight: 700; text-align: center; margin-bottom: 16px; color: #0f2a3d; }
+    .faq-subtitle { text-align: center; font-size: 15px; color: var(--color-text-light); margin-bottom: 48px; }
+    .faq-subtitle a { color: var(--color-accent); text-decoration: underline; }
+    .faq-list { display: flex; flex-direction: column; }
+    .faq-item { border: 1px solid var(--color-border); border-bottom: none; overflow: hidden; }
+    .faq-item:first-child { border-radius: var(--border-radius) var(--border-radius) 0 0; }
+    .faq-item:last-child { border-bottom: 1px solid var(--color-border); border-radius: 0 0 var(--border-radius) var(--border-radius); }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 24px;
+      text-align: left;
+      font-size: 15px;
+      font-weight: 600;
+      background: #fff;
+      transition: background var(--transition);
+    }
+    .faq-question:hover { background: #fafafa; }
+    .faq-icon { flex-shrink: 0; transition: transform 0.3s ease; }
+    .faq-item.open .faq-icon { transform: rotate(180deg); }
+    .faq-answer { display: none; padding: 0 24px 20px; font-size: 14px; line-height: 1.7; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-answer ul { padding-left: 20px; }
+    .faq-answer li { list-style: disc; margin-bottom: 8px; }
+    .faq-answer p { margin-bottom: 12px; }
+    .faq-answer p:last-child { margin-bottom: 0; }
+
+    /* ===== Footer ===== */
+    .footer { background: #f7f7f7; padding: 80px var(--page-padding) 40px; }
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 48px;
+      max-width: var(--page-width);
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) { .footer-container { grid-template-columns: 2fr repeat(3, 1fr); gap: 60px; } }
+    .footer-logo { font-weight: 700; font-size: 24px; color: #0f2a3d; letter-spacing: -0.5px; margin-bottom: 16px; display: block; }
+    .footer-tagline { font-size: 14px; color: var(--color-text-light); margin-bottom: 24px; }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-socials a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: #0f2a3d;
+      color: #fff;
+      border-radius: 50%;
+      transition: all var(--transition);
+    }
+    .footer-socials a:hover { transform: scale(1.1); background: var(--color-accent); }
+    .footer-column h4 { font-size: 14px; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-column ul { display: flex; flex-direction: column; gap: 12px; }
+    .footer-column a { font-size: 14px; color: var(--color-text-light); transition: color var(--transition); }
+    .footer-column a:hover { color: var(--color-text); }
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      font-size: 13px;
+      color: var(--color-text-light);
+    }
+    @media (min-width: 768px) {
+      .footer-bottom { flex-direction: row; justify-content: space-between; max-width: var(--page-width); margin-left: auto; margin-right: auto; }
+    }
+    .payment-icons img { height: 28px; opacity: 0.7; }
+  </style>
 </head>
 <body>
   <!-- Announcement Bar -->
@@ -20,8 +883,6 @@
       <span><strong class="announcement-highlight">FREE SHIPPING</strong> OVER $100</span>
       <span style="margin: 0 32px;">•</span>
       <span><strong class="announcement-highlight">WINTER SALE</strong> – LIMITED TIME</span>
-      <span style="margin: 0 32px;">•</span>
-      <span><strong class="announcement-highlight">FREE SHIPPING</strong> OVER $100</span>
     </div>
   </div>
 
@@ -35,18 +896,13 @@
           <line x1="4" y1="17" x2="20" y2="17"></line>
         </svg>
       </button>
-      
-      <a href="homepage.html" class="logo">
-        <span class="logo-text">ORKA</span>
-      </a>
-      
+      <a href="homepage.html" class="logo"><span class="logo-text">ORKA</span></a>
       <nav class="main-nav">
         <a href="#">Men</a>
         <a href="#">Women</a>
         <a href="#">Accessories</a>
         <a href="#">About us</a>
       </nav>
-      
       <div class="header-icons">
         <button class="icon-btn" aria-label="Search">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -73,56 +929,51 @@
   </header>
 
   <!-- Main Content -->
-  <main class="main-content">
+  <main>
     <!-- Product Section -->
     <section class="product-section">
       <div class="product-container">
-        <!-- Product Gallery -->
+        <!-- LEFT: Main Preview (XL only) -->
+        <div class="product-preview">
+          <img src="https://orykas.com/cdn/shop/files/BOXER-ULTRA-ABSORBANT.jpg?v=1770039699&width=800" alt="Men's Washable Incontinence Boxer Briefs">
+        </div>
+
+        <!-- MIDDLE: Gallery Grid -->
         <div class="product-gallery">
-          <div class="gallery-main">
-            <div class="gallery-slider" id="gallerySlider">
-              <div class="gallery-slide active">
-                <img src="https://orykas.com/cdn/shop/files/BOXER-ULTRA-ABSORBANT.jpg?v=1770039699&width=800" alt="Men's Washable Incontinence Boxer Briefs">
-              </div>
-              <div class="gallery-slide">
-                <img src="https://orykas.com/cdn/shop/files/IMAGE2-US.jpg?v=1770039699&width=800" alt="Product features">
-              </div>
-              <div class="gallery-slide">
-                <img src="https://orykas.com/cdn/shop/files/COUCHE-US.jpg?v=1770039699&width=800" alt="7 layers technology">
-              </div>
-              <div class="gallery-slide">
-                <img src="https://orykas.com/cdn/shop/files/FUITES-US.jpg?v=1770039699&width=800" alt="Leak protection">
-              </div>
-              <div class="gallery-slide">
-                <img src="https://orykas.com/cdn/shop/files/SALLE-BAIN-US.jpg?v=1770039699&width=800" alt="Lifestyle image">
-              </div>
-              <div class="gallery-slide">
-                <img src="https://orykas.com/cdn/shop/files/IMAGE3-US.jpg?v=1770039699&width=800" alt="Comfort details">
-              </div>
-              <div class="gallery-slide">
-                <img src="https://orykas.com/cdn/shop/files/ABSORBTION-US.jpg?v=1770039699&width=800" alt="Absorption test">
-              </div>
-              <div class="gallery-slide">
-                <img src="https://orykas.com/cdn/shop/files/COULEUR-US.jpg?v=1768405379&width=800" alt="Available colors">
-              </div>
-              <div class="gallery-slide">
-                <img src="https://orykas.com/cdn/shop/files/ZONE-US.jpg?v=1770039699&width=800" alt="Protection zones">
-              </div>
-              <div class="gallery-slide">
-                <img src="https://orykas.com/cdn/shop/files/BOXER-EAU.jpg?v=1770039699&width=800" alt="Water absorption test">
-              </div>
+          <div class="gallery-slider" id="gallerySlider">
+            <div class="gallery-slide">
+              <img src="https://orykas.com/cdn/shop/files/BOXER-ULTRA-ABSORBANT.jpg?v=1770039699&width=800" alt="Main product">
             </div>
-            <button class="gallery-nav gallery-prev" aria-label="Previous">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M14 6L8 12L14 18"></path>
-              </svg>
-            </button>
-            <button class="gallery-nav gallery-next" aria-label="Next">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M10 6L16 12L10 18"></path>
-              </svg>
-            </button>
+            <div class="gallery-slide">
+              <img src="https://orykas.com/cdn/shop/files/IMAGE2-US.jpg?v=1770039699&width=800" alt="Product features">
+            </div>
+            <div class="gallery-slide">
+              <img src="https://orykas.com/cdn/shop/files/COUCHE-US.jpg?v=1770039699&width=800" alt="7 layers technology">
+            </div>
+            <div class="gallery-slide">
+              <img src="https://orykas.com/cdn/shop/files/FUITES-US.jpg?v=1770039699&width=800" alt="Leak protection">
+            </div>
+            <div class="gallery-slide">
+              <img src="https://orykas.com/cdn/shop/files/SALLE-BAIN-US.jpg?v=1770039699&width=800" alt="Lifestyle">
+            </div>
+            <div class="gallery-slide">
+              <img src="https://orykas.com/cdn/shop/files/IMAGE3-US.jpg?v=1770039699&width=800" alt="Comfort details">
+            </div>
+            <div class="gallery-slide">
+              <img src="https://orykas.com/cdn/shop/files/ABSORBTION-US.jpg?v=1770039699&width=800" alt="Absorption test">
+            </div>
+            <div class="gallery-slide">
+              <img src="https://orykas.com/cdn/shop/files/COULEUR-US.jpg?v=1768405379&width=800" alt="Colors">
+            </div>
+            <div class="gallery-slide">
+              <img src="https://orykas.com/cdn/shop/files/ZONE-US.jpg?v=1770039699&width=800" alt="Protection zones">
+            </div>
+            <div class="gallery-slide">
+              <img src="https://orykas.com/cdn/shop/files/COUTURE-US_cf2c302c-7f86-498e-b6a8-bd86c48caf71.jpg?v=1770039699&width=800" alt="Stitching details">
+            </div>
           </div>
+          
+          <!-- Thumbnails (mobile only) -->
           <div class="gallery-thumbnails">
             <button class="thumbnail active" data-index="0">
               <img src="https://orykas.com/cdn/shop/files/BOXER-ULTRA-ABSORBANT.jpg?v=1770039699&width=100" alt="Thumbnail 1">
@@ -148,33 +999,25 @@
             <button class="thumbnail" data-index="7">
               <img src="https://orykas.com/cdn/shop/files/COULEUR-US.jpg?v=1768405379&width=100" alt="Thumbnail 8">
             </button>
-            <button class="thumbnail" data-index="8">
-              <img src="https://orykas.com/cdn/shop/files/ZONE-US.jpg?v=1770039699&width=100" alt="Thumbnail 9">
-            </button>
-            <button class="thumbnail" data-index="9">
-              <img src="https://orykas.com/cdn/shop/files/BOXER-EAU.jpg?v=1770039699&width=100" alt="Thumbnail 10">
-            </button>
           </div>
         </div>
 
-        <!-- Product Info -->
+        <!-- RIGHT: Product Info -->
         <div class="product-info">
           <!-- Trust Badges -->
           <div class="trust-badges">
             <a href="#reviews" class="badge">
-              <img src="https://cdn.shopify.com/s/files/1/0930/5686/0484/files/ETOILE-TRUSTPILOT.png?v=1762533220" alt="Star" height="12">
+              <img src="https://cdn.shopify.com/s/files/1/0930/5686/0484/files/ETOILE-TRUSTPILOT.png?v=1762533220" alt="Star">
               <span>Trusted by over 123,000 men</span>
             </a>
             <div class="badge">
-              <img src="https://cdn.shopify.com/s/files/1/0926/2671/4969/files/etats-unis.png?v=1751848621" alt="USA Flag" height="12">
+              <img src="https://cdn.shopify.com/s/files/1/0926/2671/4969/files/etats-unis.png?v=1751848621" alt="USA">
               <span>American brand</span>
             </div>
           </div>
 
           <!-- Title -->
           <h1 class="product-title">Men's Washable Incontinence Boxer Briefs</h1>
-          
-          <!-- Subtitle -->
           <p class="product-subtitle"><strong>Regain your freedom and confidence every day</strong></p>
 
           <!-- Price -->
@@ -190,15 +1033,11 @@
               Developed over 2+ years, our next-gen ultra-absorbent boxer is built with 7 high-performance layers for faster absorption and next-level protection.
               <span id="moreText" class="more-text">
                 No leaks. No bulk. No awkward discomfort. Just a clean, discreet solution that looks and feels like regular underwear, only way more reliable than disposable pads or diapers.
-                It absorbs and locks in up to 10 fl oz instantly, helping keep you feeling dry, comfortable, and confident all day long.
               </span>
               <a href="javascript:void(0)" id="toggleLink" class="read-more-link">Read more</a>
             </p>
           </div>
 
-          <!-- Separator -->
-          <div class="orykas-separator"></div>
-          
           <!-- USP Badges -->
           <div class="usp-badges">
             <div class="usp-item">Absorbs up to 10 fl oz</div>
@@ -206,7 +1045,37 @@
             <div class="usp-item">Odor-free</div>
             <div class="usp-item">Stays dry</div>
             <div class="usp-item">Natural bamboo fibers</div>
-            <div class="usp-item">Antibacterial and hypoallergenic</div>
+            <div class="usp-item">Antibacterial</div>
+          </div>
+
+          <!-- Size Help -->
+          <div class="size-help">
+            <span>Need help choosing? </span>
+            <a href="#">See our size guide</a>
+          </div>
+
+          <!-- Pack Selector -->
+          <div class="pack-selector">
+            <div class="pack-card" data-qty="2">
+              <div class="pack-qty">2 BOXERS</div>
+              <div class="pack-price">$89.90</div>
+              <div class="pack-original">$99.80</div>
+              <div class="pack-save">Save 10%</div>
+            </div>
+            <div class="pack-card active" data-qty="3">
+              <div class="pack-badge">BEST SELLER</div>
+              <div class="pack-qty">3 BOXERS</div>
+              <div class="pack-price">$119.90</div>
+              <div class="pack-original">$149.70</div>
+              <div class="pack-save">Save 20%</div>
+            </div>
+            <div class="pack-card" data-qty="4">
+              <div class="pack-badge">BEST VALUE</div>
+              <div class="pack-qty">4 BOXERS</div>
+              <div class="pack-price">$139.90</div>
+              <div class="pack-original">$199.60</div>
+              <div class="pack-save">Save 30%</div>
+            </div>
           </div>
 
           <!-- Size Selector -->
@@ -215,7 +1084,7 @@
               <span class="variant-label">Size:</span>
               <span class="variant-value" id="selectedSize">L</span>
             </div>
-            <div class="size-options" id="sizeOptions">
+            <div class="size-options">
               <button class="size-btn" data-size="S">S</button>
               <button class="size-btn" data-size="M">M</button>
               <button class="size-btn active" data-size="L">L</button>
@@ -235,7 +1104,7 @@
               <span class="variant-label">Color:</span>
               <span class="variant-value" id="selectedColor">Black</span>
             </div>
-            <div class="color-options" id="colorOptions">
+            <div class="color-options">
               <button class="color-btn active" data-color="Black" title="Black">
                 <img src="https://orykas.com/cdn/shop/files/COULEUR-NOIR.jpg?v=1761147555&width=100" alt="Black">
               </button>
@@ -248,12 +1117,12 @@
             </div>
           </div>
 
-          <!-- Quantity and Add to Cart -->
+          <!-- Add to Cart -->
           <div class="add-to-cart-section">
             <div class="quantity-selector">
-              <button class="qty-btn minus" aria-label="Decrease quantity">−</button>
+              <button class="qty-btn minus">−</button>
               <input type="number" value="1" min="1" class="qty-input" id="quantity">
-              <button class="qty-btn plus" aria-label="Increase quantity">+</button>
+              <button class="qty-btn plus">+</button>
             </div>
             <button class="add-to-cart-btn">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -261,46 +1130,31 @@
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <path d="M16 10a4 4 0 0 1-8 0"></path>
               </svg>
-              Add to cart
+              Add to cart • $119.90
             </button>
           </div>
 
           <!-- Reassurance Slider -->
-          <div class="reassurance-slider" aria-label="Reassurance">
+          <div class="reassurance-slider">
             <div class="reassurance-viewport">
               <div class="reassurance-track" id="reassuranceTrack">
                 <div class="reassurance-item">
-                  <span class="reassurance-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                  <span class="reassurance-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-4-4"/></svg>
                   </span>
                   <span>Ships within 24 hours</span>
                 </div>
                 <div class="reassurance-item">
-                  <span class="reassurance-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                  <span class="reassurance-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-4-4"/></svg>
                   </span>
                   <span>30-day money-back guarantee</span>
                 </div>
                 <div class="reassurance-item">
-                  <span class="reassurance-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                  <span class="reassurance-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-4-4"/></svg>
                   </span>
                   <span>Customer support here to help</span>
-                </div>
-                <!-- Duplicate first for seamless loop -->
-                <div class="reassurance-item" aria-hidden="true">
-                  <span class="reassurance-icon">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                  <span>Ships within 24 hours</span>
                 </div>
               </div>
             </div>
@@ -308,28 +1162,21 @@
 
           <!-- Trust Badge -->
           <div class="checkout-trust">
-            <img src="https://cdn.shopify.com/s/files/1/0926/2671/4969/files/Kaching_Cart_-_Sans_titre_-_1_038c7a9b-5395-4e3c-9ee8-1d0a00807929_100x100.svg?v=1745366462" alt="Trust" width="20" height="20">
+            <img src="https://cdn.shopify.com/s/files/1/0926/2671/4969/files/Kaching_Cart_-_Sans_titre_-_1_038c7a9b-5395-4e3c-9ee8-1d0a00807929_100x100.svg?v=1745366462" alt="Trust">
             <span>4.7 | TRUSTED BY 123,458 CUSTOMERS</span>
           </div>
 
-          <!-- FOMO Section -->
-          <div class="fomo-section" id="ory-fomo" role="status" aria-live="polite"
-               data-min="23" data-max="96" data-interval-min="6000" data-interval-max="12000">
-            <div class="fomo-inner">
-              <h3 class="fomo-title">VERY LIMITED STOCK</h3>
-              <div class="fomo-badge">
-                Currently <span id="viewerCount">42</span> people are viewing this page
-              </div>
-              <p class="fomo-text">
-                With the winter sales, our stock tends to sell out very quickly. Please note that last year many of our customers were unable to place their orders in time.
-              </p>
-            </div>
+          <!-- FOMO -->
+          <div class="fomo-section">
+            <div class="fomo-title">VERY LIMITED STOCK</div>
+            <div class="fomo-badge">Currently <span id="viewerCount">42</span> people are viewing this page</div>
+            <p class="fomo-text">With the winter sales, our stock tends to sell out very quickly.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Video Testimonials Section -->
+    <!-- Testimonials Section -->
     <section class="testimonials-section">
       <h2 class="section-title">123,000 men already wear our underwear</h2>
       <div class="testimonials-carousel">
@@ -360,28 +1207,26 @@
       </div>
     </section>
 
-    <!-- Absorption Test Section -->
+    <!-- Absorption Section -->
     <section class="absorption-section">
       <div class="absorption-header">
         <div class="wash-icon">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-          </svg>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
         </div>
         <span class="absorption-label">10 FL OZ ABSORPTION TEST</span>
         <h2 class="absorption-title">Other Brands vs <em>Orykas</em></h2>
-        <p class="absorption-text">No one comes close to matching our absorption capacity. We've spent years developing an ultra high-tech fabric that combines maximum absorption with lightning-fast drying — for unbeatable protection and comfort, all day long.</p>
+        <p class="absorption-text">No one comes close to matching our absorption capacity. We've spent years developing an ultra high-tech fabric that combines maximum absorption with lightning-fast drying.</p>
       </div>
     </section>
 
-    <!-- Video Comparison Section -->
+    <!-- Video Section -->
     <section class="video-section">
       <video autoplay muted loop playsinline poster="https://orykas.com/cdn/shop/files/preview_images/1d691a2733584258860528f8d870f410.thumbnail.0000000000.jpg?v=1756305255&width=1920">
         <source src="https://cdn.shopify.com/videos/c/vp/1d691a2733584258860528f8d870f410/1d691a2733584258860528f8d870f410.HD-1080p-4.8Mbps-56295613.mp4" type="video/mp4">
       </video>
     </section>
 
-    <!-- Benefits Section with Image Cards -->
+    <!-- Benefits Section -->
     <section class="benefits-section">
       <span class="benefits-label">YOU ARE GOING TO LOVE THEM</span>
       <h2 class="benefits-title">The N°1 washable boxer for incontinence</h2>
@@ -391,10 +1236,7 @@
           <div class="feature-card-content">
             <h3>Much more elegant protection</h3>
             <button class="feature-card-btn" aria-label="Learn more">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
             </button>
           </div>
         </div>
@@ -403,10 +1245,7 @@
           <div class="feature-card-content">
             <h3>Unmatched absorption</h3>
             <button class="feature-card-btn" aria-label="Learn more">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
             </button>
           </div>
         </div>
@@ -415,25 +1254,20 @@
           <div class="feature-card-content">
             <h3>Hydrophobic technology</h3>
             <button class="feature-card-btn" aria-label="Learn more">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
             </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Product Comparison Toggle Section -->
+    <!-- Comparison Section -->
     <section class="product-comparison-section">
       <h2 class="comparison-main-title">Compare Orykas to other solutions</h2>
-      
       <div class="comparison-toggle">
         <button class="toggle-btn active" data-target="diapers">Orykas vs Diapers</button>
         <button class="toggle-btn" data-target="boxers">Orykas vs Other Boxers</button>
       </div>
-
       <div id="comparison-diapers" class="comparison-table">
         <div class="comparison-col">
           <img src="https://cdn.shopify.com/s/files/1/0926/2671/4969/files/COUCHES.jpg?v=1752588771" alt="Diapers">
@@ -458,7 +1292,6 @@
           </ul>
         </div>
       </div>
-
       <div id="comparison-boxers" class="comparison-table" style="display: none;">
         <div class="comparison-col">
           <img src="https://cdn.shopify.com/s/files/1/0926/2671/4969/files/BOXER-CONCURRENT.jpg?v=1752588770" alt="Other Boxers">
@@ -488,7 +1321,7 @@
     <!-- Stats Section -->
     <section class="stats-section">
       <div class="stats-header">
-        <span class="stats-label">Compare Orykas to other solutions</span>
+        <span class="stats-label">Real results from real customers</span>
       </div>
       <div class="stats-grid">
         <div class="stat-card">
@@ -510,14 +1343,11 @@
     <section class="faq-section" id="faqs">
       <h2 class="faq-title">FAQs</h2>
       <p class="faq-subtitle">Please read our <a href="#">FAQs</a> page to find out more.</p>
-      
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
             <span>Why have over 123,000 men in the USA chosen Orykas? 🇺🇸</span>
-            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 9l6 6 6-6"></path>
-            </svg>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
           </button>
           <div class="faq-answer">
             <ul>
@@ -527,79 +1357,39 @@
               <li>Washable & reusable</li>
               <li>Eco-friendly alternative to disposable pads</li>
               <li>Designed for all-day comfort & confidence</li>
-              <li>Trusted by 87% of customers who reorder after their first purchase</li>
             </ul>
           </div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
             <span>Why wear incontinence boxer briefs?</span>
-            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 9l6 6 6-6"></path>
-            </svg>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
           </button>
           <div class="faq-answer">
-            <p>Stay dry and confident with 12-hour absorbency. Enjoy unbeatable comfort with soft, breathable materials. Care for your skin with Oeko-Tex® certified fabrics. Find your perfect fit with sizes available up to 8XL. Save in the long run with durable, reusable boxer briefs.</p>
+            <p>Stay dry and confident with 12-hour absorbency. Enjoy unbeatable comfort with soft, breathable materials. Care for your skin with Oeko-Tex® certified fabrics.</p>
           </div>
         </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>Why are Orykas boxer briefs 3x more absorbent than other incontinence underwear?</span>
-            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 9l6 6 6-6"></path>
-            </svg>
-          </button>
-          <div class="faq-answer">
-            <p><strong>7 advanced layers for maximum absorption:</strong> Our boxer briefs feature a unique 7-layer construction, each with a precise function — from moisture wicking to liquid retention — ensuring up to 10 fl oz of absorption, nearly 3x more than most products on the market.</p>
-            <p><strong>High-tech bamboo fiber core:</strong> We use a proprietary blend of dense bamboo fibers and technical microfibers, designed to trap leaks fast and lock in moisture without bulk.</p>
-            <p><strong>No shortcuts:</strong> While other brands rely on generic materials, we spent months developing our fabric to ensure maximum absorbency, breathability, and long-lasting comfort.</p>
-            <p><strong>Certified safe and skin-friendly:</strong> ORYKAS are certified Oeko-Tex® — meaning they're free from harmful substances and safe for sensitive skin.</p>
-            <p><strong>Built for confidence:</strong> Our boxers are slim, discreet, and flexible. No puffiness, no diaper feel — just a secure, all-day dry experience.</p>
-          </div>
-        </div>
-
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
             <span>Is the delivery discreet?</span>
-            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 9l6 6 6-6"></path>
-            </svg>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
           </button>
           <div class="faq-answer">
-            <p>Yes, absolutely. All our packages are shipped in plain, unbranded packaging with no mention of the contents. No one will know what you ordered—not even the delivery person. Your privacy and comfort are our top priority.</p>
+            <p>Yes, absolutely. All packages are shipped in plain, unbranded packaging with no mention of the contents.</p>
           </div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
             <span>Fabric composition</span>
-            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 9l6 6 6-6"></path>
-            </svg>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
           </button>
           <div class="faq-answer">
             <ul>
               <li>First layer: 95% bamboo fibre and 5% spandex</li>
               <li>Second layer: Breathable polyester</li>
               <li>Third and fourth layers: 95% cotton and 5% spandex</li>
-              <li>Oeko-Tex® certified - The OEKO-TEX certification ensures that the fabric is free from harmful substances, reinforcing our commitment to innovative and safe technology</li>
+              <li>Oeko-Tex® certified</li>
             </ul>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>Washing and use</span>
-            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 9l6 6 6-6"></path>
-            </svg>
-          </button>
-          <div class="faq-answer">
-            <p><strong>Usage:</strong> Machine wash at 30 °C (86 °F), air dry, then wear again just like regular boxers.</p>
-            <p>For best results and to preserve the quality of your underwear, we recommend using the ORYKAS laundry bag along with our antibacterial laundry sheets. These sheets help eliminate bacteria while maintaining the absorbency and softness of the bamboo fabric.</p>
-            <p>We also offer a convenient subscription to receive a box of 30 sheets delivered to your door every month.</p>
           </div>
         </div>
       </div>
@@ -650,11 +1440,128 @@
     <div class="footer-bottom">
       <p>© 2024 ORYKAS. All rights reserved.</p>
       <div class="payment-icons">
-        <img src="https://cdn.shopify.com/s/files/1/0926/2671/4969/files/payment-icons.png?v=1746982011" alt="Payment methods" height="24">
+        <img src="https://cdn.shopify.com/s/files/1/0926/2671/4969/files/payment-icons.png?v=1746982011" alt="Payment methods">
       </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Gallery
+      const thumbnails = document.querySelectorAll('.thumbnail');
+      const slider = document.getElementById('gallerySlider');
+      
+      thumbnails.forEach((thumb, index) => {
+        thumb.addEventListener('click', () => {
+          thumbnails.forEach(t => t.classList.remove('active'));
+          thumb.classList.add('active');
+          if (slider) {
+            slider.children[index].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+          }
+        });
+      });
+
+      // Read more
+      const toggleLink = document.getElementById('toggleLink');
+      const moreText = document.getElementById('moreText');
+      toggleLink?.addEventListener('click', () => {
+        moreText.classList.toggle('show');
+        toggleLink.textContent = moreText.classList.contains('show') ? 'Show less' : 'Read more';
+      });
+
+      // Size selector
+      const sizeBtns = document.querySelectorAll('.size-btn');
+      const selectedSize = document.getElementById('selectedSize');
+      sizeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          sizeBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          selectedSize.textContent = btn.dataset.size;
+        });
+      });
+
+      // Color selector
+      const colorBtns = document.querySelectorAll('.color-btn');
+      const selectedColor = document.getElementById('selectedColor');
+      colorBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          colorBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          selectedColor.textContent = btn.dataset.color;
+        });
+      });
+
+      // Pack selector
+      const packCards = document.querySelectorAll('.pack-card');
+      packCards.forEach(card => {
+        card.addEventListener('click', () => {
+          packCards.forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
+        });
+      });
+
+      // Quantity
+      const qtyInput = document.getElementById('quantity');
+      document.querySelector('.qty-btn.minus')?.addEventListener('click', () => {
+        if (parseInt(qtyInput.value) > 1) qtyInput.value = parseInt(qtyInput.value) - 1;
+      });
+      document.querySelector('.qty-btn.plus')?.addEventListener('click', () => {
+        qtyInput.value = parseInt(qtyInput.value) + 1;
+      });
+
+      // FAQ
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-question')?.addEventListener('click', () => {
+          item.classList.toggle('open');
+        });
+      });
+
+      // Comparison toggle
+      document.querySelectorAll('.toggle-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById('comparison-diapers').style.display = btn.dataset.target === 'diapers' ? 'flex' : 'none';
+          document.getElementById('comparison-boxers').style.display = btn.dataset.target === 'boxers' ? 'flex' : 'none';
+        });
+      });
+
+      // Video hover play
+      document.querySelectorAll('.testimonial-card').forEach(card => {
+        const video = card.querySelector('video');
+        card.addEventListener('mouseenter', () => video?.play());
+        card.addEventListener('mouseleave', () => { video?.pause(); if (video) video.currentTime = 0; });
+      });
+
+      // Reassurance slider
+      const track = document.getElementById('reassuranceTrack');
+      if (track) {
+        let index = 0;
+        setInterval(() => {
+          index = (index + 1) % 3;
+          track.style.transform = `translateX(-${index * 100}%)`;
+        }, 2600);
+      }
+
+      // FOMO counter
+      const viewer = document.getElementById('viewerCount');
+      if (viewer) {
+        setInterval(() => {
+          viewer.textContent = Math.floor(Math.random() * 74) + 23;
+        }, 8000);
+      }
+
+      // Animate on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.testimonials-section').forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
 </html>
