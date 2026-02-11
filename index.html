@@ -463,7 +463,7 @@
       pointer-events: none;
     }
 
-    /* ===== PRODUCT INFO - Exact match ===== */
+    /* ===== PRODUCT INFO - EXACT match to Orykas ===== */
     .product__info {
       display: block;
       width: 100%;
@@ -474,8 +474,9 @@
         top: calc(var(--header-height) + 24px);
       }
     }
+    /* Reset default spacing - each element controls its own margins */
     .product__info > * + * {
-      margin-top: 20px;
+      margin-top: 0;
     }
 
     /* Trust Badges - EXACT from Orykas */
@@ -487,6 +488,7 @@
     }
     @media (max-width: 380px) { 
       .orykas-badges { flex-wrap: wrap; }
+      .orykas-badges .orykas-badge:nth-child(2) { width: 100%; }
     }
     .orykas-badge {
       display: inline-flex;
@@ -495,6 +497,7 @@
       border: 0;
       border-radius: 7px;
       box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
+      font-family: Inter, sans-serif;
       font-size: 12.5px;
       font-weight: 500;
       line-height: 1;
@@ -502,20 +505,44 @@
       color: #0f2a3d;
       background: #fff;
       white-space: nowrap;
+      box-sizing: border-box;
+    }
+    .orykas-badge span {
+      line-height: 1;
+      display: inline-block;
     }
     .orykas-badge img {
       height: 12px;
       width: auto;
+      display: block;
       margin: 0 6px 0 0;
     }
+    .orykas-badge * {
+      min-height: 0 !important;
+      padding: 0;
+    }
     a.orykas-badge {
-      text-decoration: none;
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 2px 8px !important;
+      margin: 0 !important;
+      min-height: 0 !important;
+      text-decoration: none !important;
+      border-bottom: none !important;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25) !important;
+      background-image: none !important;
       cursor: pointer;
       transition: transform 0.12s ease;
+      transform-origin: center;
+    }
+    a.orykas-badge::before,
+    a.orykas-badge::after {
+      content: none !important;
+      display: none !important;
     }
     a.orykas-badge:hover { transform: scale(1.03); }
 
-    /* Product Title */
+    /* Product Title - EXACT from Orykas */
     .product__title {
       display: grid;
       gap: 12px;
@@ -529,10 +556,19 @@
       color: #0f2a3d;
       margin: 0;
     }
+    .product__text {
+      margin-top: 0;
+    }
+    .product__text-inner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
     .product__subtitle {
       font-size: 14px;
       line-height: 1.4;
-      margin-top: 4px;
+      font-weight: 700;
+      margin: 0;
     }
 
     /* Price - EXACT from Orykas */
@@ -544,6 +580,7 @@
       flex-wrap: wrap;
     }
     .orykas-price {
+      font-family: Inter, sans-serif;
       font-size: 20px;
       font-weight: 600;
       color: #0f2a3d;
@@ -555,13 +592,19 @@
       padding: 4px 10px;
       border-radius: 10px;
       background-color: #012840;
-      color: #fff;
+      color: #ffffff;
+      font-family: Inter, sans-serif;
       font-size: 12px;
       font-weight: 600;
       line-height: 1;
       white-space: nowrap;
     }
     @media (max-width: 768px) {
+      .orykas-price-wrap {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+      }
       .orykas-price { font-size: 20px; }
       .orykas-price-badge { font-size: 11.5px; padding: 3px 8px; border-radius: 8px; }
     }
@@ -609,6 +652,7 @@
       border-radius: 999px;
       background-color: #FAFAFA;
       border: 1px solid rgba(0, 0, 0, 0.10);
+      font-family: Inter, sans-serif;
       font-size: 13px;
       font-weight: 500;
       line-height: 1;
@@ -690,68 +734,66 @@
     }
     .color-swatch:hover { transform: scale(1.02); }
 
-    /* Add to Cart */
+    /* Add to Cart - EXACT from Orykas */
     .product-form__buttons {
       display: grid;
       gap: 16px;
-      margin-top: 20px;
+      margin-top: 32px;
     }
-    .quantity-selector {
-      display: flex;
-      align-items: center;
-      border: 1px solid rgba(0,0,0,0.1);
-      border-radius: var(--rounded-button);
-      overflow: hidden;
-      min-height: 56px;
+    .buy-buttons {
+      display: grid;
+      gap: 16px;
     }
-    .qty-btn {
-      width: 44px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-    }
-    .qty-btn:hover { background: rgba(0,0,0,0.05); }
-    .qty-input {
-      width: 40px;
-      height: 56px;
-      border: none;
-      text-align: center;
-      font-size: 15px;
-      font-weight: 500;
-      font-family: inherit;
-      -moz-appearance: textfield;
-      background: transparent;
-    }
-    .qty-input::-webkit-outer-spin-button,
-    .qty-input::-webkit-inner-spin-button { -webkit-appearance: none; }
 
     .button {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 16px 32px;
+      padding: 0 32px;
       min-height: 56px;
-      background: rgb(var(--color-foreground));
-      color: rgb(var(--color-background));
+      background: #171717;
+      color: #fff;
+      font-family: Inter, sans-serif;
       font-size: 15px;
       font-weight: 500;
-      border-radius: var(--rounded-button);
+      line-height: 1;
+      border-radius: 60px;
+      border: none;
+      cursor: pointer;
       transition: all 0.2s ease;
       width: 100%;
+      overflow: hidden;
     }
-    .button:hover { opacity: 0.9; transform: translateY(-1px); }
+    .button:hover { 
+      opacity: 0.92;
+    }
+    .button--primary {
+      background: #171717;
+      color: #fff;
+    }
     .button--full { width: 100%; }
-    .button svg { width: 20px; height: 20px; }
+    .button svg { 
+      width: 20px; 
+      height: 20px;
+      flex-shrink: 0;
+    }
+    .btn-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
 
-    /* Reassurance Slider */
+    /* Reassurance Slider - EXACT from Orykas */
     .orykas-swipe-slider {
       margin-top: 14px;
       border-radius: 999px;
       background: rgba(15, 42, 61, 0.04);
       border: 1px solid rgba(15, 42, 61, 0.08);
+      font-family: Inter, sans-serif;
       overflow: hidden;
     }
     .orykas-swipe-viewport {
@@ -780,8 +822,10 @@
     .orykas-swipe-track {
       display: flex;
       align-items: center;
-      transition: transform 720ms cubic-bezier(0.18, 0.95, 0.22, 1);
+      will-change: transform;
+      transform: translate3d(0,0,0);
     }
+    .orykas-swipe-slide,
     .orykas-swipe-item {
       min-width: 100%;
       padding: 11px 16px;
@@ -807,39 +851,37 @@
     }
     .orykas-swipe-icon svg { width: 14px; height: 14px; }
 
-    /* Trust checkout */
+    /* Trust checkout - hidden by default, shown via Shopify app */
     .checkout-trust {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 16px;
-      background: #f4f4f4;
-      border-radius: var(--rounded-card);
-      font-size: 12px;
-      font-weight: 500;
-      margin-top: 14px;
+      display: none;
     }
-    .checkout-trust img { width: 20px; height: 20px; flex-shrink: 0; }
 
-    /* FOMO Section */
-    .fomo-section {
+    /* FOMO Section - EXACT from Orykas (.ory-fomo) */
+    .fomo-section,
+    .ory-fomo {
       background: #fff;
       border: 1px solid #eee;
       border-radius: 14px;
       padding: 16px;
-      margin-top: 14px;
+      margin: 14px 0;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       text-align: center;
       line-height: 1.4;
     }
-    .fomo-title { 
+    .fomo-inner,
+    .ory-fomo-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .fomo-title,
+    .ory-fomo-title { 
+      margin: 0 0 10px 0;
       font-size: 18px; 
       font-weight: 700; 
       letter-spacing: 0.5px; 
-      margin-bottom: 10px; 
     }
-    .fomo-badge {
+    .fomo-badge,
+    .ory-fomo-badge {
       display: inline-block;
       background: #000;
       color: #fff;
@@ -849,7 +891,12 @@
       font-weight: 500;
       margin-bottom: 10px;
     }
-    .fomo-text { font-size: 13px; opacity: 0.85; }
+    .fomo-text,
+    .ory-fomo-text { 
+      font-size: 13px; 
+      margin: 0;
+      opacity: 0.85; 
+    }
 
     /* ===== BELOW FOLD SECTIONS ===== */
     
@@ -1558,45 +1605,58 @@
             </fieldset>
           </div>
 
-          <!-- Add to Cart -->
+          <!-- Add to Cart - EXACT from Orykas -->
           <div class="product-form__buttons">
-            <button class="button button--full">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-              Add to cart
-            </button>
+            <div class="buy-buttons">
+              <button type="submit" class="button button--primary button--full">
+                <span class="btn-text">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                  <span>Add to cart</span>
+                </span>
+              </button>
+            </div>
           </div>
 
           <!-- Reassurance Slider -->
           <div class="orykas-swipe-slider">
             <div class="orykas-swipe-viewport">
               <div class="orykas-swipe-track" id="swipeTrack">
-                <div class="orykas-swipe-item">
-                  <span class="orykas-swipe-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-4-4"/></svg></span>
+                <div class="orykas-swipe-slide">
+                  <span class="orykas-swipe-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
                   <span>Ships within 24 hours</span>
                 </div>
-                <div class="orykas-swipe-item">
-                  <span class="orykas-swipe-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-4-4"/></svg></span>
+                <div class="orykas-swipe-slide">
+                  <span class="orykas-swipe-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
                   <span>30-day money-back guarantee</span>
                 </div>
-                <div class="orykas-swipe-item">
-                  <span class="orykas-swipe-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-4-4"/></svg></span>
+                <div class="orykas-swipe-slide">
+                  <span class="orykas-swipe-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
                   <span>Customer support here to help</span>
+                </div>
+                <!-- Duplicate first for seamless loop -->
+                <div class="orykas-swipe-slide" aria-hidden="true">
+                  <span class="orykas-swipe-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <span>Ships within 24 hours</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Trust Badge -->
-          <div class="checkout-trust">
-            <img src="https://cdn.shopify.com/s/files/1/0926/2671/4969/files/Kaching_Cart_-_Sans_titre_-_1_038c7a9b-5395-4e3c-9ee8-1d0a00807929_100x100.svg?v=1745366462" alt="">
-            <span>4.7 | TRUSTED BY 123,458 CUSTOMERS</span>
-          </div>
-
-          <!-- FOMO -->
-          <div class="fomo-section">
-            <div class="fomo-title">VERY LIMITED STOCK</div>
-            <div class="fomo-badge">Currently <span id="viewerCount">42</span> people are viewing this page</div>
-            <p class="fomo-text">With the winter sales, our stock tends to sell out very quickly. Please note that last year many of our customers were unable to place their orders in time.</p>
+          <!-- FOMO Section - EXACT from Orykas -->
+          <div id="ory-fomo" class="ory-fomo fomo-section" role="status" aria-live="polite">
+            <div class="ory-fomo-inner fomo-inner">
+              <h3 class="ory-fomo-title fomo-title">VERY LIMITED STOCK</h3>
+              <div class="ory-fomo-badge fomo-badge">Currently <span id="viewerCount">42</span> people are viewing this page</div>
+              <p class="ory-fomo-text fomo-text">With the winter sales, our stock tends to sell out very quickly. Please note that last year many of our customers were unable to place their orders in time.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1890,23 +1950,79 @@
         }
       });
 
-      // Reassurance slider
-      const track = document.getElementById('swipeTrack');
-      if (track) {
-        let idx = 0;
-        setInterval(() => {
-          idx = (idx + 1) % 3;
-          track.style.transform = `translateX(-${idx * 100}%)`;
-        }, 2600);
-      }
+      // Reassurance slider - EXACT from Orykas
+      (function () {
+        var slider = document.querySelector('.orykas-swipe-slider');
+        if (!slider) return;
 
-      // FOMO viewer count
-      const vc = document.getElementById('viewerCount');
-      if (vc) {
-        setInterval(() => {
-          vc.textContent = Math.floor(Math.random() * 74) + 23;
-        }, 8000);
-      }
+        var track = slider.querySelector('.orykas-swipe-track');
+        var slides = slider.querySelectorAll('.orykas-swipe-slide');
+        if (!track || slides.length < 2) return;
+
+        var index = 0;
+        var total = slides.length;
+        var intervalMs = 2600;
+        var glideMs = 720;
+        var easing = 'cubic-bezier(.18, .95, .22, 1)';
+
+        function setTranslate(percent, withAnim) {
+          track.style.transition = withAnim
+            ? ('transform ' + glideMs + 'ms ' + easing)
+            : 'none';
+          track.style.transform = 'translate3d(' + (-percent) + '%, 0, 0)';
+        }
+
+        function goNext() {
+          index += 1;
+          setTranslate(index * 100, true);
+
+          if (index === total - 1) {
+            window.setTimeout(function () {
+              index = 0;
+              setTranslate(0, false);
+            }, glideMs + 20);
+          }
+        }
+
+        setTranslate(0, false);
+
+        var timer = window.setInterval(goNext, intervalMs);
+
+        slider.addEventListener('mouseenter', function () {
+          window.clearInterval(timer);
+        });
+        slider.addEventListener('mouseleave', function () {
+          timer = window.setInterval(goNext, intervalMs);
+        });
+      })();
+
+      // FOMO viewer count - EXACT from Orykas
+      (function () {
+        var el = document.getElementById('ory-fomo');
+        if (!el) el = document.querySelector('.fomo-section');
+        if (!el) return;
+
+        var countSpan = document.getElementById('viewerCount') || el.querySelector('#ory-fomo-count');
+        if (!countSpan) return;
+
+        var min = 23, max = 96;
+        var intervalMin = 6000, intervalMax = 12000;
+
+        function randomCount() {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function randomInterval() {
+          return Math.floor(Math.random() * (intervalMax - intervalMin + 1)) + intervalMin;
+        }
+
+        function updateCount() {
+          countSpan.textContent = randomCount();
+          setTimeout(updateCount, randomInterval());
+        }
+
+        setTimeout(updateCount, randomInterval());
+      })();
     });
   </script>
 </body>
