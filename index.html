@@ -475,7 +475,7 @@
       }
     }
     .product__info > * + * {
-      margin-top: 24px;
+      margin-top: 20px;
     }
 
     /* Trust Badges - EXACT from Orykas */
@@ -692,8 +692,8 @@
 
     /* Add to Cart */
     .product-form__buttons {
-      display: flex;
-      gap: 12px;
+      display: grid;
+      gap: 16px;
       margin-top: 20px;
     }
     .quantity-selector {
@@ -728,7 +728,6 @@
     .qty-input::-webkit-inner-spin-button { -webkit-appearance: none; }
 
     .button {
-      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -741,8 +740,10 @@
       font-weight: 500;
       border-radius: var(--rounded-button);
       transition: all 0.2s ease;
+      width: 100%;
     }
     .button:hover { opacity: 0.9; transform: translateY(-1px); }
+    .button--full { width: 100%; }
     .button svg { width: 20px; height: 20px; }
 
     /* Reassurance Slider */
@@ -1559,12 +1560,7 @@
 
           <!-- Add to Cart -->
           <div class="product-form__buttons">
-            <div class="quantity-selector">
-              <button class="qty-btn" id="qtyMinus">−</button>
-              <input type="number" value="1" min="1" class="qty-input" id="quantity">
-              <button class="qty-btn" id="qtyPlus">+</button>
-            </div>
-            <button class="button">
+            <button class="button button--full">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
               Add to cart
             </button>
@@ -1845,13 +1841,6 @@
           document.getElementById('selectedColor').textContent = r.value;
         });
       });
-
-      // Quantity buttons
-      const qty = document.getElementById('quantity');
-      const qtyMinus = document.getElementById('qtyMinus');
-      const qtyPlus = document.getElementById('qtyPlus');
-      if (qtyMinus) qtyMinus.addEventListener('click', () => { if (parseInt(qty.value) > 1) qty.value = parseInt(qty.value) - 1; });
-      if (qtyPlus) qtyPlus.addEventListener('click', () => { qty.value = parseInt(qty.value) + 1; });
 
       // FAQ accordion
       document.querySelectorAll('.faq-item').forEach(item => {
