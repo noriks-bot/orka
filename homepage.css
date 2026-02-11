@@ -257,7 +257,7 @@
   top: 12px;
   left: 12px;
   padding: 6px 12px;
-  background: var(--color-primary);
+  background: #012840;
   color: #fff;
   font-size: 11px;
   font-weight: 600;
@@ -301,9 +301,9 @@
 }
 
 /* Testimonials Section */
-.testimonials-section {
+.testimonials-section.homepage-testimonials {
   padding: 80px 20px;
-  background: var(--color-primary);
+  background: #012840;
   color: #fff;
 }
 
@@ -372,20 +372,20 @@
 .cta-content h2 {
   font-size: 40px;
   font-weight: 700;
-  color: var(--color-primary);
+  color: #012840;
   margin-bottom: 8px;
 }
 
 .cta-content p {
   font-size: 18px;
-  color: var(--color-primary);
+  color: #012840;
   margin-bottom: 32px;
 }
 
 .cta-btn {
   display: inline-block;
   padding: 16px 40px;
-  background: var(--color-primary);
+  background: #012840;
   color: #fff;
   font-size: 15px;
   font-weight: 600;
