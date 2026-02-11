@@ -115,6 +115,13 @@
     .gap-5 { gap: 20px; }
     .gap-6 { gap: 24px; }
     .shrink-0 { flex-shrink: 0; }
+    
+    /* Icon sizes */
+    .icon { display: inline-block; vertical-align: middle; }
+    .icon-xs { width: 12px; height: 12px; }
+    .icon-sm { width: 16px; height: 16px; }
+    .icon-md { width: 20px; height: 20px; }
+    .icon-lg { width: 24px; height: 24px; }
     .overflow-hidden { overflow: hidden; }
     .top-0 { top: 0; }
     
@@ -1129,9 +1136,15 @@
     }
 
     /* ===== FAQ Accordion - EXACT from Orykas ===== */
+    .product__accordions {
+      margin-top: var(--sp-4);
+    }
     .product__accordion {
       border-top: 1px solid rgba(var(--color-border), 0.1);
       padding: var(--sp-4) 0;
+    }
+    .product__accordion.with-border {
+      border-top: 1px solid rgba(var(--color-border), 0.1);
     }
     .product__accordion:last-child {
       border-bottom: 1px solid rgba(var(--color-border), 0.1);
@@ -1147,9 +1160,14 @@
     .details__summary::-webkit-details-marker {
       display: none;
     }
+    .details__summary-inner {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2d5);
+    }
     .details__summary .icon-plus-2 {
-      width: 14px;
-      height: 14px;
+      width: 12px;
+      height: 12px;
       flex-shrink: 0;
       transition: transform 0.3s ease;
     }
@@ -1161,11 +1179,21 @@
       font-weight: 500;
       line-height: 1;
     }
+    /* text-sm-base = ~14-15px */
+    .text-sm-base {
+      font-size: clamp(0.875rem, 0.789vw, 0.9375rem);
+    }
     .details__content {
       padding-top: var(--sp-3);
       font-size: 14px;
       line-height: 1.5;
       color: rgba(var(--color-foreground), 0.7);
+    }
+    .details__content.rte {
+      /* rich text editor styles */
+    }
+    .text-opacity {
+      opacity: 0.8;
     }
     .details__content p {
       margin: 0;
@@ -2033,69 +2061,81 @@
 
           <!-- FAQ Accordion - EXACT from Orykas -->
           <div class="product__accordions">
-            <details class="product__accordion">
-              <summary class="details__summary">
-                <span class="details__summary-text">Can I reuse them?</span>
-                <svg class="icon-plus-2" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <details class="product__accordion details with-border">
+              <summary class="details__summary flex items-center justify-between gap-2 cursor-pointer">
+                <div class="details__summary-inner flex items-center gap-2d5">
+                  <span class="text-sm-base font-medium leading-none">Can I reuse them?</span>
+                </div>
+                <svg class="icon icon-plus-2 icon-xs shrink-0" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M7 1V13M13 7H1"></path>
                 </svg>
               </summary>
-              <div class="details__content">
+              <div class="details__content rte text-sm text-opacity">
                 <p>Our ultra-absorbent incontinence boxer shorts are built to last, with a reusable design that holds up for an average of 3 to 5 years.</p>
               </div>
             </details>
-            <details class="product__accordion">
-              <summary class="details__summary">
-                <span class="details__summary-text">How long can I wear them?</span>
-                <svg class="icon-plus-2" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <details class="product__accordion details with-border">
+              <summary class="details__summary flex items-center justify-between gap-2 cursor-pointer">
+                <div class="details__summary-inner flex items-center gap-2d5">
+                  <span class="text-sm-base font-medium leading-none">How long can I wear them?</span>
+                </div>
+                <svg class="icon icon-plus-2 icon-xs shrink-0" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M7 1V13M13 7H1"></path>
                 </svg>
               </summary>
-              <div class="details__content">
+              <div class="details__content rte text-sm text-opacity">
                 <p>Our ultra-absorbent incontinence boxer shorts hold the equivalent of up to 8 regular pads. Depending on your flow, they offer up to 12 hours of day or night protection. For heavier leaks, we recommend changing them as soon as you start feeling damp.</p>
               </div>
             </details>
-            <details class="product__accordion">
-              <summary class="details__summary">
-                <span class="details__summary-text">What materials are the boxers made of?</span>
-                <svg class="icon-plus-2" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <details class="product__accordion details with-border">
+              <summary class="details__summary flex items-center justify-between gap-2 cursor-pointer">
+                <div class="details__summary-inner flex items-center gap-2d5">
+                  <span class="text-sm-base font-medium leading-none">What materials are the boxers made of?</span>
+                </div>
+                <svg class="icon icon-plus-2 icon-xs shrink-0" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M7 1V13M13 7H1"></path>
                 </svg>
               </summary>
-              <div class="details__content">
+              <div class="details__content rte text-sm text-opacity">
                 <p>Our boxers are made from 95% natural bamboo fiber and 5% spandex. This blend offers softness, breathability, and just the right amount of stretch for all-day comfort. Bamboo is naturally antibacterial and gentle on the skin.</p>
               </div>
             </details>
-            <details class="product__accordion">
-              <summary class="details__summary">
-                <span class="details__summary-text">Will this have a nappy effect?</span>
-                <svg class="icon-plus-2" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <details class="product__accordion details with-border">
+              <summary class="details__summary flex items-center justify-between gap-2 cursor-pointer">
+                <div class="details__summary-inner flex items-center gap-2d5">
+                  <span class="text-sm-base font-medium leading-none">Will this have a nappy effect?</span>
+                </div>
+                <svg class="icon icon-plus-2 icon-xs shrink-0" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M7 1V13M13 7H1"></path>
                 </svg>
               </summary>
-              <div class="details__content">
+              <div class="details__content rte text-sm text-opacity">
                 <p>Not at all. We've carefully selected all our materials to give you maximum comfort and a feeling of wearing ordinary boxer shorts.</p>
               </div>
             </details>
-            <details class="product__accordion">
-              <summary class="details__summary">
-                <span class="details__summary-text">Which size to choose?</span>
-                <svg class="icon-plus-2" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <details class="product__accordion details with-border">
+              <summary class="details__summary flex items-center justify-between gap-2 cursor-pointer">
+                <div class="details__summary-inner flex items-center gap-2d5">
+                  <span class="text-sm-base font-medium leading-none">Which size to choose?</span>
+                </div>
+                <svg class="icon icon-plus-2 icon-xs shrink-0" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M7 1V13M13 7H1"></path>
                 </svg>
               </summary>
-              <div class="details__content">
+              <div class="details__content rte text-sm text-opacity">
                 <p>🧼 Not sure about the size? Don't worry. Check out our size chart – our products follow <strong>standard American sizing</strong>. We recommend choosing your usual size. If you're in between sizes, we suggest sizing up for a more comfortable fit.</p>
               </div>
             </details>
-            <details class="product__accordion">
-              <summary class="details__summary">
-                <span class="details__summary-text">Are these boxer briefs suitable for heavy incontinence?</span>
-                <svg class="icon-plus-2" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <details class="product__accordion details with-border">
+              <summary class="details__summary flex items-center justify-between gap-2 cursor-pointer">
+                <div class="details__summary-inner flex items-center gap-2d5">
+                  <span class="text-sm-base font-medium leading-none">Are these boxer briefs suitable for heavy incontinence?</span>
+                </div>
+                <svg class="icon icon-plus-2 icon-xs shrink-0" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M7 1V13M13 7H1"></path>
                 </svg>
               </summary>
-              <div class="details__content">
+              <div class="details__content rte text-sm text-opacity">
                 <p>Yes, our ultra-absorbent boxer briefs are specifically designed for moderate to heavy incontinence. With an absorption capacity 3 times greater than other boxer briefs on the market, they effectively contain significant leaks while maintaining a dry feeling.</p>
               </div>
             </details>
