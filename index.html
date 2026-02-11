@@ -236,10 +236,16 @@
     }
 
     /* ===== PRODUCT SECTION - EXACT from Orykas ===== */
-    /* Section padding from original: 8px top, 44px bottom */
+    /* Section styles from original */
+    .section {
+      position: relative;
+    }
     .section--padding {
       padding-top: 8px;
       padding-bottom: 44px;
+    }
+    .section--rounded {
+      /* Optional rounded styling */
     }
     
     /* Main product wrapper: featured-product product product--scroll flex flex-col items-start lg:grid gap-5 w-full relative */
@@ -1411,9 +1417,11 @@
 
   <!-- Main Content -->
   <main>
-    <section class="page-width">
-      <!-- Product: featured-product product product--scroll flex flex-col items-start lg:grid gap-5 w-full relative -->
-      <div class="product">
+    <!-- Section: section section--padding section--rounded relative -->
+    <div class="section section--padding section--rounded relative">
+      <div class="page-width relative">
+        <!-- Product: featured-product product product--scroll flex flex-col items-start lg:grid gap-5 w-full relative -->
+        <div class="featured-product product product--scroll">
         <!-- Gallery Container: product__gallery-container lg:sticky flex flex-col gap-0 md:gap-8 relative w-full -->
         <div class="product__gallery-container">
           <!-- Gallery: product__gallery xl:grid xl:items-start gap-5 h-full -->
@@ -1669,7 +1677,8 @@
           </div>
         </div>
       </div>
-    </section>
+      </div>
+    </div>
 
     <!-- Video Testimonials -->
     <section class="testimonials-section">
