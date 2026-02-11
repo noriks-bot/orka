@@ -34,18 +34,19 @@
       --sp-12: 3rem;
       --sp-14: 3.5rem;
       
-      /* Layout */
+      /* Layout - EXACT from Orykas */
       --page-width: 1500px;
-      --page-padding: 20px;
-      --grid-gap: clamp(20px, 2.526vw, 48px);
+      --page-padding: 1.25rem; /* --sp-5 */
+      --grid-gap: clamp(1.25rem, 2.526vw, 3rem);
       --rounded-card: clamp(10px, 1.053vw, 20px);
       --rounded-button: 60px;
-      --topbar-height: 3rem;
+      --topbar-height: 3rem; /* --sp-12 */
       --header-height: 64px;
     }
     
-    @media (min-width: 1024px) { :root { --page-padding: 36px; } }
-    @media (min-width: 1536px) { :root { --page-padding: 48px; --topbar-height: 3.5rem; } }
+    @media (min-width: 1024px) { :root { --page-padding: 2.25rem; /* --sp-9 */ } }
+    @media (min-width: 1280px) { :root { --grid-gap: 3rem; --page-padding: 3rem; /* --sp-12 */ } }
+    @media (min-width: 1536px) { :root { --topbar-height: 3.5rem; /* --sp-14 */ } }
 
     html { font-size: 16px; scroll-behavior: smooth; }
     body {
