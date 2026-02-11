@@ -931,7 +931,7 @@ ul, ol {
 
 /* ===== Testimonials Section ===== */
 .testimonials-section {
-  padding: 40px 20px;
+  padding: 60px 20px;
   max-width: var(--page-width);
   margin: 0 auto;
   opacity: 1;
@@ -955,10 +955,11 @@ ul, ol {
 }
 
 .section-title {
-  font-size: 20px;
+  font-size: clamp(20px, 1.5rem + 0.25vw, 28px);
   font-weight: 700;
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
+  color: #0f2a3d;
 }
 
 .testimonials-carousel {
@@ -968,24 +969,33 @@ ul, ol {
 }
 
 @media (min-width: 768px) {
+  .testimonials-section {
+    padding: 80px 48px;
+  }
+  
   .testimonials-carousel {
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    gap: 20px;
   }
   
   .section-title {
-    font-size: 24px;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
   }
 }
 
 .testimonial-card {
   position: relative;
-  border-radius: var(--border-radius);
+  border-radius: 12px;
   overflow: hidden;
   aspect-ratio: 9/16;
   background: #f0f0f0;
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 
 .testimonial-card video {
@@ -996,25 +1006,26 @@ ul, ol {
 
 .video-duration {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.6);
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.7);
   color: #fff;
-  padding: 4px 8px;
-  border-radius: 4px;
+  padding: 5px 10px;
+  border-radius: 6px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
 }
 
 /* ===== Absorption Test Section ===== */
 .absorption-section {
-  padding: 60px 20px;
+  padding: 80px 20px;
   background: #f7f7f7;
   text-align: center;
 }
 
 .absorption-header {
-  max-width: 700px;
+  max-width: 750px;
   margin: 0 auto;
 }
 
@@ -1022,28 +1033,33 @@ ul, ol {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  margin-bottom: 16px;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 20px;
 }
 
 .wash-icon svg {
   color: var(--color-accent);
+  width: 48px;
+  height: 48px;
 }
 
 .absorption-label {
   display: block;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   color: var(--color-text-light);
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .absorption-title {
-  font-size: 28px;
+  font-size: clamp(26px, 2rem + 0.5vw, 40px);
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  color: #0f2a3d;
+  line-height: 1.2;
 }
 
 .absorption-title em {
@@ -1053,9 +1069,11 @@ ul, ol {
 }
 
 .absorption-text {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--color-text-light);
-  line-height: 1.6;
+  line-height: 1.7;
+  max-width: 650px;
+  margin: 0 auto;
 }
 
 /* ===== Video Section ===== */
@@ -1064,25 +1082,22 @@ ul, ol {
   width: 100%;
   max-width: var(--page-width);
   margin: 0 auto;
-  padding: 0 20px 40px;
+  padding: 0 20px 60px;
 }
 
 .video-section video {
   width: 100%;
-  border-radius: var(--border-radius-lg);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 768px) {
   .absorption-section {
-    padding: 80px 48px;
-  }
-  
-  .absorption-title {
-    font-size: 36px;
+    padding: 100px 48px;
   }
   
   .video-section {
-    padding: 0 48px 60px;
+    padding: 0 48px 80px;
   }
 }
 
