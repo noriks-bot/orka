@@ -712,23 +712,23 @@
       .orykas-usp-pill { font-size: 12.5px; padding: 6px 10px; } 
     }
 
-    /* ===== BUNDLE SELECTOR - Kaching Bundles Style (EXACT) ===== */
+    /* ===== BUNDLE SELECTOR - Kaching Bundles EXACT from config ===== */
     .bundle-section-title {
       font-family: Inter, sans-serif;
       font-size: 16px;
       font-weight: 400;
       line-height: 1.4;
-      margin: 0 0 12px 0;
+      margin: 0 0 10px 0;
     }
     .kaching-bundles__bars {
       display: flex;
-      gap: 8px;
+      gap: calc(8px * 0.55); /* spacing: 0.55 */
       padding-top: 10px;
     }
     @media (max-width: 768px) {
       .kaching-bundles__bars {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
       }
     }
     .kaching-bundles__bar {
@@ -737,89 +737,92 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 18px 14px 14px;
-      border: 2px solid #e2e2e2;
-      border-radius: 14px;
+      padding: 16px 10px 12px;
+      border: 1.5px solid #E5E5E5;
+      border-radius: 7px; /* cornerRadius: 7 */
       background: #fff;
       cursor: pointer;
       transition: all 0.15s ease;
       text-align: center;
     }
     .kaching-bundles__bar:hover {
-      border-color: #bbb;
+      border-color: #000;
     }
     .kaching-bundles__bar.selected {
       border-color: #000;
-      border-width: 2px;
+      border-width: 1.5px;
+      background: #F5F5F5; /* selectedBackground */
     }
-    /* BEST SELLER - Yellow badge */
+    /* BEST SELLER - Yellow badge - EXACT */
     .kaching-bundles__bar-label {
       position: absolute;
-      top: -11px;
+      top: -10px;
       left: 50%;
       transform: translateX(-50%);
       white-space: nowrap;
-      padding: 5px 12px;
-      border-radius: 6px;
-      background: #FACC15; /* Yellow */
-      color: #000;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: #FDF669; /* labelBackground: rgb(253, 246, 105) */
+      color: #000; /* label text */
       font-family: Inter, sans-serif;
-      font-size: 10px;
-      font-weight: 700;
+      font-size: 12px; /* label size: 12 */
+      font-weight: 700; /* label style: bold */
       text-transform: uppercase;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.02em;
     }
     .kaching-bundles__bar-quantity {
       font-family: Inter, sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      color: #000;
-      margin-bottom: 8px;
+      font-size: 15px; /* title size: 15 */
+      font-weight: 700; /* title style: bold */
+      color: #000; /* title color */
+      margin-bottom: 6px;
     }
     .kaching-bundles__bar-price-wrapper {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      margin-bottom: 6px;
+      gap: 6px;
+      margin-bottom: 4px;
     }
-    /* RED sale price */
+    /* Sale price - TEAL color from config */
     .kaching-bundles__bar-price {
       font-family: Inter, sans-serif;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
-      color: #DC2626; /* Red */
+      color: #A3D3D9; /* price: rgb(163, 211, 217) */
     }
     /* Strikethrough compare price */
     .kaching-bundles__bar-compare-price {
       font-family: Inter, sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 400;
-      color: #9CA3AF;
+      color: #646464; /* fullPrice: rgb(100, 100, 100) */
       text-decoration: line-through;
     }
-    /* + FREE with icon */
+    /* + FREE text with boxer image */
     .kaching-bundles__bar-free {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
       font-family: Inter, sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      color: #16A34A; /* Green */
-      margin: 6px 0;
+      font-size: 12px; /* freeGift size: 12 */
+      font-weight: 700; /* freeGift style: bold */
+      color: #000;
+      margin: 6px 0 4px;
     }
-    .kaching-bundles__bar-free svg {
-      width: 18px;
-      height: 18px;
+    .kaching-bundles__bar-free img {
+      width: 31px; /* imageSize from freeGifts config */
+      height: 31px;
+      border-radius: 4px;
+      object-fit: cover;
     }
-    /* Unit price below */
-    .kaching-bundles__bar-unit {
+    /* Subtitle (Free shipping) */
+    .kaching-bundles__bar-subtitle {
       font-family: Inter, sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      color: #6B7280;
+      font-size: 12px; /* subtitle size: 12 */
+      font-weight: 500; /* subtitle style: medium */
+      color: #555555; /* subtitle: rgb(85, 85, 85) */
       margin-top: 2px;
     }
     
@@ -1813,20 +1816,19 @@
             <div class="orykas-usp-pill">Antibacterial and hypoallergenic</div>
           </div>
 
-          <!-- Choose your pack - Bundle Selector -->
+          <!-- Choose your pack - Bundle Selector (EXACT from Kaching config) -->
           <div class="bundle-selector">
             <p class="bundle-section-title">Choose your pack</p>
             <div class="kaching-bundles__bars">
-              <!-- 2 BOXERS -->
+              <!-- 2 BOXERS - discountValue: 79.9 -->
               <div class="kaching-bundles__bar" data-bundle="2">
                 <div class="kaching-bundles__bar-quantity">2 BOXERS</div>
                 <div class="kaching-bundles__bar-price-wrapper">
-                  <span class="kaching-bundles__bar-price">$99.90</span>
+                  <span class="kaching-bundles__bar-price">$79.90</span>
                   <span class="kaching-bundles__bar-compare-price">$199.80</span>
                 </div>
-                <div class="kaching-bundles__bar-unit">$49.95/item</div>
               </div>
-              <!-- 3 BOXERS - BEST SELLER -->
+              <!-- 3 BOXERS - BEST SELLER - discountValue: 119.9 -->
               <div class="kaching-bundles__bar selected" data-bundle="3">
                 <span class="kaching-bundles__bar-label">BEST SELLER</span>
                 <div class="kaching-bundles__bar-quantity">3 BOXERS</div>
@@ -1835,23 +1837,23 @@
                   <span class="kaching-bundles__bar-compare-price">$299.70</span>
                 </div>
                 <div class="kaching-bundles__bar-free">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <img src="https://orykas.com/cdn/shop/files/BOXER-ULTRA-ABSORBANT.jpg?v=1770039699&width=62" alt="">
                   + 1 FREE
                 </div>
-                <div class="kaching-bundles__bar-unit">$39.97/item</div>
+                <div class="kaching-bundles__bar-subtitle">Free shipping</div>
               </div>
-              <!-- 4 BOXERS -->
+              <!-- 4 BOXERS - discountValue: 159.9 -->
               <div class="kaching-bundles__bar" data-bundle="4">
                 <div class="kaching-bundles__bar-quantity">4 BOXERS</div>
                 <div class="kaching-bundles__bar-price-wrapper">
-                  <span class="kaching-bundles__bar-price">$149.90</span>
+                  <span class="kaching-bundles__bar-price">$159.90</span>
                   <span class="kaching-bundles__bar-compare-price">$399.60</span>
                 </div>
                 <div class="kaching-bundles__bar-free">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <img src="https://orykas.com/cdn/shop/files/BOXER-ULTRA-ABSORBANT.jpg?v=1770039699&width=62" alt="">
                   + 2 FREE
                 </div>
-                <div class="kaching-bundles__bar-unit">$37.48/item</div>
+                <div class="kaching-bundles__bar-subtitle">Free shipping</div>
               </div>
             </div>
           </div>
