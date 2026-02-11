@@ -134,7 +134,9 @@ ul, ol {
 .logo {
   display: flex;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .logo-text {
@@ -144,6 +146,7 @@ ul, ol {
   color: #171717;
   letter-spacing: -0.5px;
   line-height: 1;
+  text-transform: uppercase;
 }
 
 .main-nav {
@@ -316,7 +319,7 @@ ul, ol {
   .gallery-slider {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 12px;
     overflow: visible;
   }
   
@@ -329,15 +332,17 @@ ul, ol {
   }
 }
 
-/* XL (1280px+): Larger gaps */
+/* XL (1280px+): Larger gaps - matching original Orykas grid */
 @media (min-width: 1280px) {
   .gallery-slider {
-    gap: 20px;
+    gap: 16px;
   }
-  
-  /* First image hidden on XL - similar to original xl:hidden behavior */
-  .gallery-slide.mobile-only {
-    display: none;
+}
+
+/* 2XL (1536px+): Maximum gaps */
+@media (min-width: 1536px) {
+  .gallery-slider {
+    gap: 20px;
   }
 }
 
@@ -934,19 +939,20 @@ ul, ol {
   padding: 60px 20px;
   max-width: var(--page-width);
   margin: 0 auto;
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .testimonials-section.animate-in {
-  animation: fadeInUp 0.6s ease forwards;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
