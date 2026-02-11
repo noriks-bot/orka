@@ -931,61 +931,79 @@
     }
     .form__label .font-medium { font-weight: 500; }
 
-    /* Size Swatches - round-slight style */
+    /* Size Swatches - round-slight style - EXACT from Orykas theme */
     .swatches,
     .swatches--round-slight {
       display: flex;
       align-items: flex-start;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 16px; /* gap-4 */
     }
     .swatches li { list-style: none; }
     .label-swatch {
+      --swatch-radius: 5px;
       display: block;
       position: relative;
       min-width: 44px;
-      padding: 12px 16px;
-      border: 1px solid rgba(0,0,0,0.1);
-      border-radius: 8px;
+      padding: 16px 20px; /* --sp-4 --sp-5 */
+      border-radius: var(--swatch-radius);
       font-family: Inter, sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 1;
+      font-size: 14px; /* text-sm */
+      font-weight: 500; /* font-medium */
+      line-height: 1; /* leading-none */
       text-align: center;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.15s ease;
     }
-    .label-swatch:hover { border-color: rgb(var(--color-foreground)); }
+    /* Border via box-shadow (like Orykas) */
+    .label-swatch::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+      transition: all 0.15s ease;
+      pointer-events: none;
+    }
+    .label-swatch:hover::after {
+      box-shadow: 0 0 0 2px rgb(var(--color-foreground));
+    }
     input:checked + .label-swatch {
       background: rgb(var(--color-foreground));
       color: rgb(var(--color-background));
-      border-color: rgb(var(--color-foreground));
     }
-    input.disabled + .label-swatch { 
-      opacity: 0.4; 
-      text-decoration: line-through;
-      cursor: not-allowed;
+    input:checked + .label-swatch::after {
+      box-shadow: 0 0 0 2px rgb(var(--color-foreground));
     }
 
-    /* Color Swatches - 85x85 like original */
+    /* Color Swatches - imageSize: 63px from Kaching config */
     .color-swatch {
       display: block;
       position: relative;
-      width: 85px;
-      height: 85px;
-      border-radius: 10px;
+      width: 63px;
+      height: 63px;
+      border-radius: 5px; /* same as label-swatch */
       overflow: hidden;
       cursor: pointer;
-      border: 2px solid transparent;
-      transition: all 0.2s ease;
+      transition: all 0.15s ease;
       background-size: cover;
       background-position: center;
     }
-    input:checked + .color-swatch { 
-      outline: 2px solid rgba(0, 0, 0, 0.75);
-      outline-offset: 2px;
+    .color-swatch::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+      transition: all 0.15s ease;
+      pointer-events: none;
     }
-    .color-swatch:hover { transform: scale(1.02); }
+    input:checked + .color-swatch::after { 
+      box-shadow: 0 0 0 2px rgb(var(--color-foreground));
+    }
+    .color-swatch:hover::after { 
+      box-shadow: 0 0 0 2px rgb(var(--color-foreground));
+    }
 
     /* Add to Cart - EXACT from Orykas */
     .product-form__buttons {
