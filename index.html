@@ -1128,6 +1128,53 @@
       display: none;
     }
 
+    /* ===== FAQ Accordion - EXACT from Orykas ===== */
+    .product__accordion {
+      border-top: 1px solid rgba(var(--color-border), 0.1);
+      padding: var(--sp-4) 0;
+    }
+    .product__accordion:last-child {
+      border-bottom: 1px solid rgba(var(--color-border), 0.1);
+    }
+    .details__summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-2);
+      cursor: pointer;
+      list-style: none;
+    }
+    .details__summary::-webkit-details-marker {
+      display: none;
+    }
+    .details__summary .icon-plus-2 {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+    details[open] .details__summary .icon-plus-2 {
+      transform: rotate(45deg);
+    }
+    .details__summary-text {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1;
+    }
+    .details__content {
+      padding-top: var(--sp-3);
+      font-size: 14px;
+      line-height: 1.5;
+      color: rgba(var(--color-foreground), 0.7);
+    }
+    .details__content p {
+      margin: 0;
+    }
+    .details__content strong {
+      font-weight: 600;
+      color: rgb(var(--color-foreground));
+    }
+
     /* FOMO Section - EXACT from Orykas (.ory-fomo) */
     .fomo-section,
     .ory-fomo {
@@ -1982,6 +2029,76 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <!-- FAQ Accordion - EXACT from Orykas -->
+          <div class="product__accordions">
+            <details class="product__accordion">
+              <summary class="details__summary">
+                <span class="details__summary-text">Can I reuse them?</span>
+                <svg class="icon-plus-2" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 1V13M13 7H1"></path>
+                </svg>
+              </summary>
+              <div class="details__content">
+                <p>Our ultra-absorbent incontinence boxer shorts are built to last, with a reusable design that holds up for an average of 3 to 5 years.</p>
+              </div>
+            </details>
+            <details class="product__accordion">
+              <summary class="details__summary">
+                <span class="details__summary-text">How long can I wear them?</span>
+                <svg class="icon-plus-2" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 1V13M13 7H1"></path>
+                </svg>
+              </summary>
+              <div class="details__content">
+                <p>Our ultra-absorbent incontinence boxer shorts hold the equivalent of up to 8 regular pads. Depending on your flow, they offer up to 12 hours of day or night protection. For heavier leaks, we recommend changing them as soon as you start feeling damp.</p>
+              </div>
+            </details>
+            <details class="product__accordion">
+              <summary class="details__summary">
+                <span class="details__summary-text">What materials are the boxers made of?</span>
+                <svg class="icon-plus-2" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 1V13M13 7H1"></path>
+                </svg>
+              </summary>
+              <div class="details__content">
+                <p>Our boxers are made from 95% natural bamboo fiber and 5% spandex. This blend offers softness, breathability, and just the right amount of stretch for all-day comfort. Bamboo is naturally antibacterial and gentle on the skin.</p>
+              </div>
+            </details>
+            <details class="product__accordion">
+              <summary class="details__summary">
+                <span class="details__summary-text">Will this have a nappy effect?</span>
+                <svg class="icon-plus-2" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 1V13M13 7H1"></path>
+                </svg>
+              </summary>
+              <div class="details__content">
+                <p>Not at all. We've carefully selected all our materials to give you maximum comfort and a feeling of wearing ordinary boxer shorts.</p>
+              </div>
+            </details>
+            <details class="product__accordion">
+              <summary class="details__summary">
+                <span class="details__summary-text">Which size to choose?</span>
+                <svg class="icon-plus-2" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 1V13M13 7H1"></path>
+                </svg>
+              </summary>
+              <div class="details__content">
+                <p>🧼 Not sure about the size? Don't worry. Check out our size chart – our products follow <strong>standard American sizing</strong>. We recommend choosing your usual size. If you're in between sizes, we suggest sizing up for a more comfortable fit.</p>
+              </div>
+            </details>
+            <details class="product__accordion">
+              <summary class="details__summary">
+                <span class="details__summary-text">Are these boxer briefs suitable for heavy incontinence?</span>
+                <svg class="icon-plus-2" viewBox="0 0 14 14" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 1V13M13 7H1"></path>
+                </svg>
+              </summary>
+              <div class="details__content">
+                <p>Yes, our ultra-absorbent boxer briefs are specifically designed for moderate to heavy incontinence. With an absorption capacity 3 times greater than other boxer briefs on the market, they effectively contain significant leaks while maintaining a dry feeling.</p>
+              </div>
+            </details>
           </div>
 
           <!-- FOMO Section - EXACT from Orykas -->
