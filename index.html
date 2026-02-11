@@ -558,33 +558,42 @@
     }
     a.orykas-badge:hover { transform: scale(1.03); }
 
-    /* Product Title - EXACT from Orykas */
+    /* Product Title - EXACT from Orykas: product__title grid gap-3 */
     .product__title {
       display: grid;
-      gap: 12px;
+      gap: 12px; /* gap-3 */
       margin: 0;
     }
-    .product__title h1 {
+    /* heading leading-none product-title-md */
+    .product__title h1,
+    .heading {
+      font-family: Inter, sans-serif;
       font-size: clamp(22px, 1.5rem + 0.5vw, 32px);
       font-weight: 700;
-      line-height: 1;
+      line-height: 1; /* leading-none */
       letter-spacing: -0.02em;
       color: #0f2a3d;
       margin: 0;
     }
+    /* product__text with product__text-inner flex items-center gap-2d5 */
     .product__text {
       margin-top: 0;
     }
     .product__text-inner {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 10px; /* gap-2d5 = 2.5 * 4px = 10px */
     }
-    .product__subtitle {
+    /* text-sm leading-tight */
+    .product__subtitle,
+    .text-sm {
+      font-family: Inter, sans-serif;
       font-size: 14px;
-      line-height: 1.4;
-      font-weight: 700;
+      line-height: 1.4; /* leading-tight */
       margin: 0;
+    }
+    .product__subtitle strong {
+      font-weight: 700;
     }
 
     /* Price - EXACT from Orykas */
