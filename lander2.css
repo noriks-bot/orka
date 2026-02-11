@@ -1,0 +1,269 @@
+/* ===== Lander2 Specific Styles ===== */
+
+/* Price Compare (Strikethrough) */
+.price-compare {
+  font-size: 18px;
+  color: #999;
+  text-decoration: line-through;
+  margin-right: 8px;
+}
+
+/* Green Sale Badge */
+.sale-badge--green {
+  background: #28a745;
+}
+
+/* Steps Section */
+.steps-section {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  margin: 16px 0;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #f7f7f7;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  flex: 1;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.step.active {
+  opacity: 1;
+  background: #e8f4f5;
+  border: 1px solid var(--color-accent);
+}
+
+.step-number {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-number img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Shipping Info */
+.shipping-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 16px;
+  background: #f7f7f7;
+  border-radius: 10px;
+}
+
+.shipping-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--color-text);
+}
+
+.shipping-item svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Video Stories Section */
+.video-stories-section {
+  padding: 40px 20px;
+  max-width: var(--page-width);
+  margin: 0 auto;
+}
+
+.video-stories-grid {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+}
+
+.video-story {
+  flex: 0 0 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  scroll-snap-align: start;
+  cursor: pointer;
+}
+
+.video-story video {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-accent);
+}
+
+.video-story-title {
+  font-size: 11px;
+  text-align: center;
+  color: var(--color-text-light);
+}
+
+@media (min-width: 768px) {
+  .video-stories-grid {
+    justify-content: center;
+    gap: 24px;
+  }
+  
+  .video-story {
+    flex: 0 0 90px;
+  }
+  
+  .video-story video {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .video-story-title {
+    font-size: 12px;
+  }
+}
+
+/* Quick FAQ Section */
+.quick-faq-section {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quick-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quick-faq-item {
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.quick-faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  background: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.quick-faq-question:hover {
+  background: #fafafa;
+}
+
+.quick-faq-item .faq-icon {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.quick-faq-item.open .faq-icon {
+  transform: rotate(180deg);
+}
+
+.quick-faq-answer {
+  display: none;
+  padding: 0 16px 16px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.quick-faq-item.open .quick-faq-answer {
+  display: block;
+}
+
+/* Same Capacity Section */
+.same-capacity-section {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.section-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+.section-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Technology Section */
+.technology-section {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tech-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+}
+
+.tech-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.tech-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+.tech-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 767px) {
+  .steps-section {
+    flex-direction: column;
+  }
+  
+  .step {
+    flex: none;
+  }
+}
