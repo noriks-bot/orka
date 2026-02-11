@@ -147,20 +147,37 @@
       max-width: var(--page-width);
       margin: 0 auto;
       padding: 12px var(--page-padding);
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      justify-content: space-between;
       gap: 20px;
     }
-    .header-left { display: flex; align-items: center; gap: 20px; }
+    .header-left { display: flex; align-items: center; gap: 6px; justify-content: flex-start; }
+    .header-center { display: flex; justify-content: center; }
+    .header-right { display: flex; justify-content: flex-end; }
     .menu-toggle { display: flex; padding: 8px; }
-    @media (min-width: 1024px) { .menu-toggle { display: none; } }
     .logo { display: flex; align-items: center; }
+    .logo img { max-height: 31px; max-width: 140px; }
+    @media (max-width: 767px) { .logo img { max-height: 29px; max-width: 130px; } }
     .logo-text { font-weight: 700; font-size: 24px; letter-spacing: -0.5px; }
-    .header-nav { display: none; gap: 32px; }
-    .header-nav a { font-size: 15px; font-weight: 500; transition: opacity 0.2s; }
+    .header-nav { 
+      display: none; 
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 100%;
+      gap: 20px; 
+    }
+    .header-nav a { font-size: 14px; font-weight: 500; transition: opacity 0.2s; }
     .header-nav a:hover { opacity: 0.7; }
-    @media (min-width: 1024px) { .header-nav { display: flex; } }
+    @media (min-width: 1024px) { 
+      .header-nav { 
+        display: flex; 
+        position: static;
+        transform: none;
+        top: auto;
+      } 
+    }
     .header-icons { display: flex; gap: 8px; }
     .icon-btn { 
       display: flex; 
@@ -1147,10 +1164,6 @@
       } 
     }
     .footer-logo { 
-      font-weight: 700; 
-      font-size: 24px; 
-      color: #0f2a3d; 
-      letter-spacing: -0.5px; 
       margin-bottom: 16px; 
       display: block; 
     }
@@ -1221,29 +1234,30 @@
     </div>
   </div>
 
-  <!-- Header - EXACT structure -->
+  <!-- Header - EXACT structure from Orykas (centered logo, icons on sides) -->
   <header class="header">
     <div class="header-inner">
+      <!-- Left icons -->
       <div class="header-left">
-        <button class="menu-toggle" aria-label="Menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <line x1="4" y1="7" x2="20" y2="7"></line>
-            <line x1="4" y1="12" x2="20" y2="12"></line>
-            <line x1="4" y1="17" x2="20" y2="17"></line>
-          </svg>
-        </button>
-        <a href="homepage.html" class="logo"><span class="logo-text">ORKA</span></a>
-      </div>
-      <nav class="header-nav">
-        <a href="#">Men</a>
-        <a href="#">Women</a>
-        <a href="#">Accessories</a>
-        <a href="#">About us</a>
-      </nav>
-      <div class="header-icons">
         <button class="icon-btn" aria-label="Search">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         </button>
+        <button class="menu-toggle" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" d="M3 6H21M3 12H11M3 18H16"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Center logo -->
+      <div class="header-center">
+        <a href="homepage.html" class="logo">
+          <img src="https://orykas.com/cdn/shop/files/ORYKAS_LOGO_765d5b22-54de-42b4-9027-c48d77366c04.png?v=1751659784&width=280" alt="ORYKAS">
+        </a>
+      </div>
+      
+      <!-- Right icons -->
+      <div class="header-right header-icons">
         <button class="icon-btn" aria-label="Account">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
         </button>
@@ -1667,7 +1681,7 @@
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-column">
-        <span class="footer-logo">ORKA</span>
+        <img class="footer-logo" src="https://orykas.com/cdn/shop/files/ORYKAS_LOGO_765d5b22-54de-42b4-9027-c48d77366c04.png?v=1751659784&width=280" alt="ORYKAS" style="max-height: 31px; max-width: 140px;">
         <p class="footer-tagline">Regain your freedom and confidence every day.</p>
         <div class="footer-socials">
           <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z"/></svg></a>
