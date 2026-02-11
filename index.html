@@ -712,6 +712,164 @@
       .orykas-usp-pill { font-size: 12.5px; padding: 6px 10px; } 
     }
 
+    /* ===== BUNDLE SELECTOR - Kaching Bundles Style ===== */
+    .bundle-section-title {
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.4;
+      margin: 0 0 12px 0;
+    }
+    .kaching-bundles__bars {
+      display: flex;
+      gap: 8px;
+      padding-top: 10px;
+    }
+    @media (max-width: 768px) {
+      .kaching-bundles__bars {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+    .kaching-bundles__bar {
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px 12px;
+      border: 2px solid #e5e5e5;
+      border-radius: 12px;
+      background: #fff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+    .kaching-bundles__bar:hover {
+      border-color: #ccc;
+    }
+    .kaching-bundles__bar.selected {
+      border-color: #000;
+      background: #fafafa;
+    }
+    .kaching-bundles__bar-label {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: #000;
+      color: #fff;
+      font-family: Inter, sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .kaching-bundles__bar-quantity {
+      font-family: Inter, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 4px;
+    }
+    .kaching-bundles__bar-price-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .kaching-bundles__bar-compare-price {
+      font-family: Inter, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #999;
+      text-decoration: line-through;
+    }
+    .kaching-bundles__bar-price {
+      font-family: Inter, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #000;
+    }
+    .kaching-bundles__bar-free {
+      font-family: Inter, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: #16a34a;
+      margin-top: 4px;
+    }
+    .kaching-bundles__bar-unit {
+      font-family: Inter, sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      color: #666;
+      margin-top: 4px;
+    }
+    
+    /* Size selector with strikethrough for unavailable */
+    .label-swatch.unavailable {
+      opacity: 0.4;
+      text-decoration: line-through;
+      text-decoration-color: #dc2626;
+      cursor: not-allowed;
+    }
+
+    /* Accessory Section */
+    .accessory-section {
+      margin-top: 24px;
+    }
+    .accessory-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid #e5e5e5;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .accessory-item:hover {
+      border-color: #ccc;
+    }
+    .accessory-checkbox {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      accent-color: #000;
+    }
+    .accessory-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .accessory-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .accessory-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .accessory-name {
+      font-family: Inter, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #000;
+    }
+    .accessory-price {
+      font-family: Inter, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #666;
+    }
+
     /* Variant Picker - EXACT from Orykas */
     .variant-picker { 
       display: grid; 
@@ -1620,8 +1778,47 @@
             <div class="orykas-usp-pill">Antibacterial and hypoallergenic</div>
           </div>
 
-          <!-- Variant Picker -->
+          <!-- Choose your pack - Bundle Selector -->
+          <div class="bundle-selector">
+            <p class="bundle-section-title">Choose your pack</p>
+            <div class="kaching-bundles__bars">
+              <!-- 2 BOXERS -->
+              <div class="kaching-bundles__bar" data-bundle="2">
+                <div class="kaching-bundles__bar-quantity">2 BOXERS</div>
+                <div class="kaching-bundles__bar-price-wrapper">
+                  <span class="kaching-bundles__bar-compare-price">$199.80</span>
+                  <span class="kaching-bundles__bar-price">$99.90</span>
+                </div>
+                <div class="kaching-bundles__bar-unit">$49.95/item</div>
+              </div>
+              <!-- 3 BOXERS - BEST SELLER -->
+              <div class="kaching-bundles__bar selected" data-bundle="3">
+                <span class="kaching-bundles__bar-label">BEST SELLER</span>
+                <div class="kaching-bundles__bar-quantity">3 BOXERS</div>
+                <div class="kaching-bundles__bar-price-wrapper">
+                  <span class="kaching-bundles__bar-compare-price">$299.70</span>
+                  <span class="kaching-bundles__bar-price">$119.90</span>
+                </div>
+                <div class="kaching-bundles__bar-free">+ 1 FREE</div>
+                <div class="kaching-bundles__bar-unit">$29.98/item</div>
+              </div>
+              <!-- 4 BOXERS -->
+              <div class="kaching-bundles__bar" data-bundle="4">
+                <div class="kaching-bundles__bar-quantity">4 BOXERS</div>
+                <div class="kaching-bundles__bar-price-wrapper">
+                  <span class="kaching-bundles__bar-compare-price">$399.60</span>
+                  <span class="kaching-bundles__bar-price">$149.90</span>
+                </div>
+                <div class="kaching-bundles__bar-free">+ 2 FREE</div>
+                <div class="kaching-bundles__bar-unit">$24.98/item</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Select your size and color -->
           <div class="variant-picker">
+            <p class="bundle-section-title">Select your size and color</p>
+            
             <!-- Size -->
             <fieldset class="variant-input-wrapper">
               <legend class="sr-only">Size</legend>
@@ -1629,8 +1826,8 @@
                 <div>Size: <span class="font-medium" id="selectedSize">L</span></div>
               </div>
               <ul class="swatches">
-                <li><input type="radio" class="sr-only disabled" name="size" value="S" id="size-s"><label for="size-s" class="label-swatch">S</label></li>
-                <li><input type="radio" class="sr-only disabled" name="size" value="M" id="size-m"><label for="size-m" class="label-swatch">M</label></li>
+                <li><input type="radio" class="sr-only" name="size" value="S" id="size-s"><label for="size-s" class="label-swatch unavailable">S</label></li>
+                <li><input type="radio" class="sr-only" name="size" value="M" id="size-m"><label for="size-m" class="label-swatch unavailable">M</label></li>
                 <li><input type="radio" class="sr-only" name="size" value="L" id="size-l" checked><label for="size-l" class="label-swatch">L</label></li>
                 <li><input type="radio" class="sr-only" name="size" value="XL" id="size-xl"><label for="size-xl" class="label-swatch">XL</label></li>
                 <li><input type="radio" class="sr-only" name="size" value="2XL" id="size-2xl"><label for="size-2xl" class="label-swatch">2XL</label></li>
@@ -1638,12 +1835,13 @@
                 <li><input type="radio" class="sr-only" name="size" value="4XL" id="size-4xl"><label for="size-4xl" class="label-swatch">4XL</label></li>
                 <li><input type="radio" class="sr-only" name="size" value="5XL" id="size-5xl"><label for="size-5xl" class="label-swatch">5XL</label></li>
                 <li><input type="radio" class="sr-only" name="size" value="6XL" id="size-6xl"><label for="size-6xl" class="label-swatch">6XL</label></li>
+                <li><input type="radio" class="sr-only" name="size" value="7XL" id="size-7xl"><label for="size-7xl" class="label-swatch">7XL</label></li>
                 <li><input type="radio" class="sr-only" name="size" value="8XL" id="size-8xl"><label for="size-8xl" class="label-swatch">8XL</label></li>
               </ul>
             </fieldset>
 
             <!-- Colors -->
-            <fieldset class="variant-input-wrapper">
+            <fieldset class="variant-input-wrapper product-form__input--color">
               <legend class="sr-only">Colors</legend>
               <div class="form__label">
                 <div>Colors: <span class="font-medium" id="selectedColor">Black</span></div>
@@ -1663,6 +1861,21 @@
                 </li>
               </ul>
             </fieldset>
+          </div>
+
+          <!-- Add accessories -->
+          <div class="accessory-section">
+            <p class="bundle-section-title">Add accessories</p>
+            <label class="accessory-item">
+              <input type="checkbox" class="accessory-checkbox">
+              <div class="accessory-image">
+                <img src="https://orykas.com/cdn/shop/files/FILET-LAVAGE.jpg?v=1749642606&width=100" alt="Machine Wash Bag" loading="lazy">
+              </div>
+              <div class="accessory-info">
+                <span class="accessory-name">Machine Wash Bag</span>
+                <span class="accessory-price">+ $9.90</span>
+              </div>
+            </label>
           </div>
 
           <!-- Add to Cart - EXACT from Orykas -->
