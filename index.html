@@ -804,19 +804,20 @@
 
     .button {
       position: relative;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 0 32px;
-      min-height: 56px;
+      gap: 0.75rem; /* 12px */
+      padding: clamp(1.125rem, 1.2vw, 1.375rem) clamp(1.625rem, 1.473vw, 1.875rem);
+      max-height: 3.75rem; /* 60px */
+      min-height: 3.125rem; /* 50px */
       background: #171717;
       color: #fff;
       font-family: Inter, sans-serif;
       font-size: 15px;
       font-weight: 500;
       line-height: 1;
-      border-radius: 60px;
+      border-radius: var(--rounded-button); /* 60px */
       border: none;
       cursor: pointer;
       transition: all 0.2s ease;
