@@ -437,6 +437,12 @@ ul, ol {
   gap: 16px;
 }
 
+@media (min-width: 1024px) {
+  .product-info {
+    padding: 20px 0 40px 20px;
+  }
+}
+
 /* Trust Badges (orykas-badges) */
 .trust-badges {
   display: flex;
@@ -868,18 +874,18 @@ ul, ol {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 12px 16px;
-  background: #f4f4f4;
-  border-radius: var(--border-radius);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--color-text);
+  gap: 10px;
+  padding: 14px 18px;
+  background: rgba(15, 42, 61, 0.04);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f2a3d;
 }
 
 .checkout-trust img {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
 }
 
