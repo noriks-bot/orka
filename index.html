@@ -2176,6 +2176,14 @@
         });
       });
 
+      // Bundle selector
+      document.querySelectorAll('.kaching-bundles__bar').forEach(bar => {
+        bar.addEventListener('click', () => {
+          document.querySelectorAll('.kaching-bundles__bar').forEach(b => b.classList.remove('selected'));
+          bar.classList.add('selected');
+        });
+      });
+
       // FAQ accordion
       document.querySelectorAll('.faq-item').forEach(item => {
         const btn = item.querySelector('.faq-question');
