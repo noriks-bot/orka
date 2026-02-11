@@ -511,12 +511,12 @@
     @media (min-width: 1024px) {
       .product__info { 
         position: sticky; 
-        top: calc(var(--header-height) + 24px);
+        top: var(--sp-6); /* Same as gallery-container: 24px */
       }
     }
-    /* Reset default spacing - each element controls its own margins */
+    /* Spacing between info sections - from theme CSS */
     .product__info > * + * {
-      margin-top: 0;
+      margin-top: var(--sp-6); /* 24px */
     }
 
     /* Trust Badges - EXACT from Orykas */
