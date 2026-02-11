@@ -138,6 +138,27 @@ document.addEventListener('DOMContentLoaded', function() {
   // Update viewer count periodically
   setInterval(updateViewerCount, getRandomInt(5000, 12000));
 
+  // ===== Comparison Toggle =====
+  const toggleBtns = document.querySelectorAll('.toggle-btn');
+  const comparisonDiapers = document.getElementById('comparison-diapers');
+  const comparisonBoxers = document.getElementById('comparison-boxers');
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      toggleBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      const target = btn.dataset.target;
+      if (target === 'diapers') {
+        comparisonDiapers.style.display = 'flex';
+        comparisonBoxers.style.display = 'none';
+      } else {
+        comparisonDiapers.style.display = 'none';
+        comparisonBoxers.style.display = 'flex';
+      }
+    });
+  });
+
   // ===== FAQ Accordion =====
   const faqItems = document.querySelectorAll('.faq-item');
 

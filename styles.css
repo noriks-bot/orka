@@ -714,20 +714,33 @@ ul, ol {
   font-weight: 500;
 }
 
-/* ===== Comparison Section ===== */
-.comparison-section {
+/* ===== Absorption Test Section ===== */
+.absorption-section {
   padding: 60px 20px;
   background: #f7f7f7;
   text-align: center;
 }
 
-.comparison-header {
+.absorption-header {
   max-width: 700px;
-  margin: 0 auto 40px;
+  margin: 0 auto;
 }
 
-.comparison-label {
-  display: inline-block;
+.wash-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 16px;
+}
+
+.wash-icon svg {
+  color: var(--color-accent);
+}
+
+.absorption-label {
+  display: block;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -735,53 +748,49 @@ ul, ol {
   margin-bottom: 12px;
 }
 
-.comparison-title {
+.absorption-title {
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 16px;
 }
 
-.comparison-text {
+.absorption-title em {
+  font-style: normal;
+  color: var(--color-accent);
+  position: relative;
+}
+
+.absorption-text {
   font-size: 15px;
   color: var(--color-text-light);
   line-height: 1.6;
 }
 
-.comparison-images {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.comparison-item {
+/* ===== Video Section ===== */
+.video-section {
   position: relative;
+  width: 100%;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 20px 40px;
 }
 
-.comparison-item img {
+.video-section video {
   width: 100%;
   border-radius: var(--border-radius-lg);
 }
 
-.comparison-caption {
-  display: block;
-  margin-top: 12px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.comparison-item.highlight .comparison-caption {
-  color: var(--color-accent);
-}
-
 @media (min-width: 768px) {
-  .comparison-section {
+  .absorption-section {
     padding: 80px 48px;
   }
   
-  .comparison-title {
+  .absorption-title {
     font-size: 36px;
+  }
+  
+  .video-section {
+    padding: 0 48px 60px;
   }
 }
 
@@ -795,9 +804,9 @@ ul, ol {
 
 .benefits-label {
   display: inline-block;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
   color: var(--color-text-light);
   margin-bottom: 12px;
 }
@@ -808,65 +817,211 @@ ul, ol {
   margin-bottom: 40px;
 }
 
-.benefits-grid {
+/* Feature Cards */
+.feature-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
-.benefit-card {
-  padding: 24px;
-  background: #f7f7f7;
+.feature-card {
+  position: relative;
   border-radius: var(--border-radius-lg);
-  text-align: center;
+  overflow: hidden;
+  background: #171717;
+  aspect-ratio: 1;
 }
 
-.benefit-icon {
-  width: 56px;
-  height: 56px;
-  margin: 0 auto 16px;
-  background: var(--color-accent);
+.feature-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.feature-card:hover img {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+.feature-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+}
+
+.feature-card-content h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  text-align: left;
+}
+
+.feature-card-btn {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.benefit-icon svg {
-  width: 28px;
-  height: 28px;
+  flex-shrink: 0;
   color: #fff;
+  transition: background-color 0.2s ease;
 }
 
-.benefit-card h3 {
-  font-size: 14px;
-  font-weight: 600;
+.feature-card-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 @media (max-width: 767px) {
-  .benefits-grid {
+  .feature-cards {
     grid-template-columns: 1fr;
     gap: 16px;
   }
   
-  .benefit-card {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    text-align: left;
-    padding: 16px 20px;
+  .feature-card {
+    aspect-ratio: 1.2;
   }
   
-  .benefit-icon {
-    margin: 0;
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
+  .feature-card-content h3 {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) {
+  .benefits-section {
+    padding: 80px 48px;
   }
   
-  .benefit-icon svg {
-    width: 24px;
-    height: 24px;
+  .benefits-title {
+    font-size: 32px;
+  }
+}
+
+/* ===== Product Comparison Toggle Section ===== */
+.product-comparison-section {
+  padding: 60px 20px;
+  background: #f7f7f7;
+  text-align: center;
+}
+
+.comparison-main-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.comparison-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.toggle-btn {
+  padding: 12px 20px;
+  background: #fff;
+  border: 2px solid var(--color-accent);
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.toggle-btn.active {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.comparison-table {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.comparison-col {
+  background: #fff;
+  border-radius: var(--border-radius-lg);
+  padding: 24px;
+  flex: 1;
+  min-width: 280px;
+  max-width: 360px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.comparison-col.orykas {
+  border: 3px solid var(--color-accent);
+}
+
+.comparison-col img {
+  width: 100%;
+  max-width: 160px;
+  border-radius: 12px;
+  margin: 0 auto 16px;
+}
+
+.comparison-col h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.comparison-list {
+  text-align: left;
+}
+
+.comparison-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.comparison-list li:first-child {
+  border-top: none;
+}
+
+.icon-check {
+  color: #28a745;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.icon-x {
+  color: #dc3545;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .product-comparison-section {
+    padding: 80px 48px;
+  }
+  
+  .comparison-main-title {
+    font-size: 32px;
   }
 }
 
