@@ -118,25 +118,39 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ===== FOMO Counter =====
+  const fomoRoot = document.getElementById('ory-fomo');
   const viewerCount = document.getElementById('viewerCount');
-  const minViewers = 23;
-  const maxViewers = 96;
+  
+  if (fomoRoot && viewerCount) {
+    const minViewers = parseInt(fomoRoot.getAttribute('data-min')) || 23;
+    const maxViewers = parseInt(fomoRoot.getAttribute('data-max')) || 96;
+    const intervalMin = parseInt(fomoRoot.getAttribute('data-interval-min')) || 6000;
+    const intervalMax = parseInt(fomoRoot.getAttribute('data-interval-max')) || 12000;
 
-  function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // Set initial count based on seeded random
+    const seed = (Date.now() % 10000) + (window.location.pathname.length * 7);
+    const startCount = minViewers + (seed % (maxViewers - minViewers + 1));
+    viewerCount.textContent = startCount;
+
+    function updateViewerCount() {
+      const newCount = getRandomInt(minViewers, maxViewers);
+      viewerCount.textContent = newCount;
+      viewerCount.classList.add('bump');
+      setTimeout(() => {
+        viewerCount.classList.remove('bump');
+      }, 200);
+      
+      // Schedule next update with random interval
+      setTimeout(updateViewerCount, getRandomInt(intervalMin, intervalMax));
+    }
+
+    // Start the counter after initial delay
+    setTimeout(updateViewerCount, getRandomInt(intervalMin, intervalMax));
   }
-
-  function updateViewerCount() {
-    const newCount = getRandomInt(minViewers, maxViewers);
-    viewerCount.textContent = newCount;
-    viewerCount.style.transform = 'scale(1.1)';
-    setTimeout(() => {
-      viewerCount.style.transform = 'scale(1)';
-    }, 200);
-  }
-
-  // Update viewer count periodically
-  setInterval(updateViewerCount, getRandomInt(5000, 12000));
 
   // ===== Comparison Toggle =====
   const toggleBtns = document.querySelectorAll('.toggle-btn');
@@ -295,6 +309,42 @@ document.addEventListener('DOMContentLoaded', function() {
     mainNav.classList.toggle('active');
     menuToggle.setAttribute('aria-expanded', mainNav.classList.contains('active'));
   });
+
+  // ===== Reassurance Slider Animation =====
+  const reassuranceTrack = document.getElementById('reassuranceTrack');
+  if (reassuranceTrack) {
+    const slides = reassuranceTrack.querySelectorAll('.reassurance-item');
+    if (slides.length >= 2) {
+      let index = 0;
+      const total = slides.length;
+      const intervalMs = 2600;
+      const glideMs = 720;
+      const easing = 'cubic-bezier(.18, .95, .22, 1)';
+
+      function setTranslate(percent, withAnim) {
+        reassuranceTrack.style.transition = withAnim
+          ? `transform ${glideMs}ms ${easing}`
+          : 'none';
+        reassuranceTrack.style.transform = `translate3d(${-percent}%, 0, 0)`;
+      }
+
+      function goNext() {
+        index += 1;
+        setTranslate(index * 100, true);
+
+        // When reaching duplicate slide, reset to start
+        if (index === total - 1) {
+          setTimeout(() => {
+            setTranslate(0, false);
+            index = 0;
+          }, glideMs);
+        }
+      }
+
+      // Start auto-sliding
+      setInterval(goNext, intervalMs);
+    }
+  }
 
   // ===== Preload Critical Images =====
   const criticalImages = [

@@ -254,25 +254,42 @@
           </div>
 
           <!-- Reassurance Slider -->
-          <div class="reassurance-slider">
-            <div class="reassurance-track">
-              <div class="reassurance-item">
-                <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
-                  <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>Ships within 24 hours</span>
-              </div>
-              <div class="reassurance-item">
-                <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
-                  <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>30-day money-back guarantee</span>
-              </div>
-              <div class="reassurance-item">
-                <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
-                  <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>Customer support here to help</span>
+          <div class="reassurance-slider" aria-label="Reassurance">
+            <div class="reassurance-viewport">
+              <div class="reassurance-track" id="reassuranceTrack">
+                <div class="reassurance-item">
+                  <span class="reassurance-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>Ships within 24 hours</span>
+                </div>
+                <div class="reassurance-item">
+                  <span class="reassurance-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>30-day money-back guarantee</span>
+                </div>
+                <div class="reassurance-item">
+                  <span class="reassurance-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>Customer support here to help</span>
+                </div>
+                <!-- Duplicate first for seamless loop -->
+                <div class="reassurance-item" aria-hidden="true">
+                  <span class="reassurance-icon">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M20 7L10 17l-4-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>Ships within 24 hours</span>
+                </div>
               </div>
             </div>
           </div>
@@ -284,14 +301,17 @@
           </div>
 
           <!-- FOMO Section -->
-          <div class="fomo-section">
-            <h3 class="fomo-title">VERY LIMITED STOCK</h3>
-            <div class="fomo-badge">
-              Currently <span id="viewerCount">42</span> people are viewing this page
+          <div class="fomo-section" id="ory-fomo" role="status" aria-live="polite"
+               data-min="23" data-max="96" data-interval-min="6000" data-interval-max="12000">
+            <div class="fomo-inner">
+              <h3 class="fomo-title">VERY LIMITED STOCK</h3>
+              <div class="fomo-badge">
+                Currently <span id="viewerCount">42</span> people are viewing this page
+              </div>
+              <p class="fomo-text">
+                With the winter sales, our stock tends to sell out very quickly. Please note that last year many of our customers were unable to place their orders in time.
+              </p>
             </div>
-            <p class="fomo-text">
-              With the winter sales, our stock tends to sell out very quickly. Please note that last year many of our customers were unable to place their orders in time.
-            </p>
           </div>
         </div>
       </div>
