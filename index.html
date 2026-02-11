@@ -719,6 +719,27 @@
       .orykas-usp-pill { font-size: 12.5px; padding: 6px 10px; } 
     }
 
+    /* Size help link */
+    .size-help-link {
+      margin: var(--sp-4) 0;
+    }
+    .size-help-link a {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-size: 14px;
+      color: rgb(var(--color-foreground));
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: opacity 0.2s;
+    }
+    .size-help-link a:hover {
+      opacity: 0.7;
+    }
+    .size-help-link svg {
+      flex-shrink: 0;
+    }
+
     /* ===== BUNDLE SELECTOR - Kaching Bundles EXACT from config ===== */
     .bundle-section-title {
       font-family: Inter, sans-serif;
@@ -1907,6 +1928,19 @@
             <div class="orykas-usp-pill">Stays dry</div>
             <div class="orykas-usp-pill">Natural bamboo fibers</div>
             <div class="orykas-usp-pill">Antibacterial and hypoallergenic</div>
+          </div>
+
+          <!-- Need help choosing a size? -->
+          <div class="size-help-link">
+            <a href="#size-guide">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+              <span>Need help choosing a size?</span>
+            </a>
           </div>
 
           <!-- Choose your pack - Bundle Selector (EXACT from Kaching config) -->
