@@ -696,6 +696,43 @@ ul, ol {
   transform: translateY(-1px);
 }
 
+/* Reassurance Slider */
+.reassurance-slider {
+  margin-top: 14px;
+  border-radius: 999px;
+  background: rgba(15, 42, 61, 0.04);
+  border: 1px solid rgba(15, 42, 61, 0.08);
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+.reassurance-track {
+  display: flex;
+  animation: scrollReassurance 10s linear infinite;
+}
+
+.reassurance-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f2a3d;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.reassurance-item svg {
+  color: #0EA77F;
+  flex-shrink: 0;
+}
+
+@keyframes scrollReassurance {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
 /* Checkout Trust */
 .checkout-trust {
   display: flex;
