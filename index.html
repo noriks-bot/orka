@@ -712,7 +712,7 @@
       .orykas-usp-pill { font-size: 12.5px; padding: 6px 10px; } 
     }
 
-    /* ===== BUNDLE SELECTOR - Kaching Bundles Style ===== */
+    /* ===== BUNDLE SELECTOR - Kaching Bundles Style (EXACT) ===== */
     .bundle-section-title {
       font-family: Inter, sans-serif;
       font-size: 16px;
@@ -737,84 +737,107 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 16px 12px;
-      border: 2px solid #e5e5e5;
-      border-radius: 12px;
+      padding: 18px 14px 14px;
+      border: 2px solid #e2e2e2;
+      border-radius: 14px;
       background: #fff;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.15s ease;
       text-align: center;
     }
     .kaching-bundles__bar:hover {
-      border-color: #ccc;
+      border-color: #bbb;
     }
     .kaching-bundles__bar.selected {
       border-color: #000;
-      background: #fafafa;
+      border-width: 2px;
     }
+    /* BEST SELLER - Yellow badge */
     .kaching-bundles__bar-label {
       position: absolute;
-      top: -10px;
+      top: -11px;
       left: 50%;
       transform: translateX(-50%);
       white-space: nowrap;
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 6px;
-      background: #000;
-      color: #fff;
+      background: #FACC15; /* Yellow */
+      color: #000;
       font-family: Inter, sans-serif;
       font-size: 10px;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
     }
     .kaching-bundles__bar-quantity {
       font-family: Inter, sans-serif;
       font-size: 15px;
       font-weight: 600;
       color: #000;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
     .kaching-bundles__bar-price-wrapper {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 2px;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 6px;
     }
-    .kaching-bundles__bar-compare-price {
-      font-family: Inter, sans-serif;
-      font-size: 13px;
-      font-weight: 400;
-      color: #999;
-      text-decoration: line-through;
-    }
+    /* RED sale price */
     .kaching-bundles__bar-price {
       font-family: Inter, sans-serif;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 700;
-      color: #000;
+      color: #DC2626; /* Red */
     }
-    .kaching-bundles__bar-free {
+    /* Strikethrough compare price */
+    .kaching-bundles__bar-compare-price {
       font-family: Inter, sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      color: #16a34a;
-      margin-top: 4px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #9CA3AF;
+      text-decoration: line-through;
     }
+    /* + FREE with icon */
+    .kaching-bundles__bar-free {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-family: Inter, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #16A34A; /* Green */
+      margin: 6px 0;
+    }
+    .kaching-bundles__bar-free svg {
+      width: 18px;
+      height: 18px;
+    }
+    /* Unit price below */
     .kaching-bundles__bar-unit {
       font-family: Inter, sans-serif;
-      font-size: 11px;
-      font-weight: 400;
-      color: #666;
-      margin-top: 4px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #6B7280;
+      margin-top: 2px;
     }
     
-    /* Size selector with strikethrough for unavailable */
+    /* Size selector - diagonal red line for unavailable */
     .label-swatch.unavailable {
-      opacity: 0.4;
-      text-decoration: line-through;
-      text-decoration-color: #dc2626;
+      position: relative;
+      opacity: 0.5;
       cursor: not-allowed;
+    }
+    .label-swatch.unavailable::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -2px;
+      right: -2px;
+      height: 2px;
+      background: #DC2626;
+      transform: rotate(-45deg);
     }
 
     /* Accessory Section */
@@ -1786,8 +1809,8 @@
               <div class="kaching-bundles__bar" data-bundle="2">
                 <div class="kaching-bundles__bar-quantity">2 BOXERS</div>
                 <div class="kaching-bundles__bar-price-wrapper">
-                  <span class="kaching-bundles__bar-compare-price">$199.80</span>
                   <span class="kaching-bundles__bar-price">$99.90</span>
+                  <span class="kaching-bundles__bar-compare-price">$199.80</span>
                 </div>
                 <div class="kaching-bundles__bar-unit">$49.95/item</div>
               </div>
@@ -1796,21 +1819,27 @@
                 <span class="kaching-bundles__bar-label">BEST SELLER</span>
                 <div class="kaching-bundles__bar-quantity">3 BOXERS</div>
                 <div class="kaching-bundles__bar-price-wrapper">
-                  <span class="kaching-bundles__bar-compare-price">$299.70</span>
                   <span class="kaching-bundles__bar-price">$119.90</span>
+                  <span class="kaching-bundles__bar-compare-price">$299.70</span>
                 </div>
-                <div class="kaching-bundles__bar-free">+ 1 FREE</div>
-                <div class="kaching-bundles__bar-unit">$29.98/item</div>
+                <div class="kaching-bundles__bar-free">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  + 1 FREE
+                </div>
+                <div class="kaching-bundles__bar-unit">$39.97/item</div>
               </div>
               <!-- 4 BOXERS -->
               <div class="kaching-bundles__bar" data-bundle="4">
                 <div class="kaching-bundles__bar-quantity">4 BOXERS</div>
                 <div class="kaching-bundles__bar-price-wrapper">
-                  <span class="kaching-bundles__bar-compare-price">$399.60</span>
                   <span class="kaching-bundles__bar-price">$149.90</span>
+                  <span class="kaching-bundles__bar-compare-price">$399.60</span>
                 </div>
-                <div class="kaching-bundles__bar-free">+ 2 FREE</div>
-                <div class="kaching-bundles__bar-unit">$24.98/item</div>
+                <div class="kaching-bundles__bar-free">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  + 2 FREE
+                </div>
+                <div class="kaching-bundles__bar-unit">$37.48/item</div>
               </div>
             </div>
           </div>
