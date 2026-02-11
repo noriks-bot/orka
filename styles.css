@@ -105,9 +105,17 @@ ul, ol {
   color: var(--color-text);
 }
 
-.logo img {
-  height: 28px;
-  width: auto;
+.logo {
+  text-decoration: none;
+}
+
+.logo-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--color-primary);
+  text-transform: uppercase;
 }
 
 .main-nav {
@@ -1197,9 +1205,14 @@ ul, ol {
 }
 
 .footer-logo {
-  height: 32px;
-  width: auto;
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fff;
+  text-transform: uppercase;
   margin-bottom: 16px;
+  display: block;
 }
 
 .footer-tagline {
