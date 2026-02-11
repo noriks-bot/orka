@@ -1307,21 +1307,285 @@ ul, ol {
   animation: fadeIn 0.5s ease forwards;
 }
 
-/* ===== Responsive Utilities ===== */
-@media (max-width: 767px) {
+/* ===== Mobile Responsive (Pixel-Perfect Match) ===== */
+
+/* Mobile First - Under 750px (Shopify mobile breakpoint) */
+@media (max-width: 749px) {
+  /* Header Mobile */
+  .header-container {
+    padding: 10px 16px;
+  }
+  
+  .logo-text {
+    font-size: 20px;
+  }
+  
+  .header-icons {
+    gap: 8px;
+  }
+  
+  .icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .icon-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Product Section Mobile */
+  .product-section {
+    padding-top: 0;
+  }
+  
   .product-container {
-    gap: 24px;
+    gap: 20px;
+    padding: 0;
+  }
+  
+  /* Gallery Full Width on Mobile */
+  .product-gallery {
+    width: 100vw;
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+  
+  .gallery-main {
+    border-radius: 0;
+  }
+  
+  .gallery-slide img {
+    border-radius: 0;
+  }
+  
+  .gallery-thumbnails {
+    padding: 12px 16px;
+    gap: 8px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .thumbnail {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+  }
+  
+  /* Product Info Mobile */
+  .product-info {
+    padding: 0 16px;
+  }
+  
+  .trust-badges {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .badge {
+    padding: 6px 10px;
+    font-size: 11px;
   }
   
   .product-title {
     font-size: 22px;
+    line-height: 1.2;
   }
   
+  .product-subtitle {
+    font-size: 14px;
+  }
+  
+  .price-wrapper {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .price {
+    font-size: 24px;
+  }
+  
+  .sale-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  
+  /* USP Badges Mobile */
+  .usp-badges {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .usp-item {
+    padding: 8px 12px;
+    font-size: 11px;
+    flex: 1 1 calc(50% - 4px);
+    min-width: 140px;
+  }
+  
+  .usp-item svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Size Selector Mobile */
+  .size-options {
+    gap: 6px;
+  }
+  
+  .size-btn {
+    min-width: 48px;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  /* Color Selector Mobile */
+  .color-options {
+    gap: 8px;
+  }
+  
+  .color-btn {
+    width: 36px;
+    height: 36px;
+  }
+  
+  /* Add to Cart Mobile */
   .add-to-cart-section {
     flex-direction: column;
+    gap: 12px;
   }
   
   .quantity-selector {
+    width: 100%;
     justify-content: center;
+  }
+  
+  .add-to-cart-btn {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 15px;
+  }
+  
+  /* Video Section Mobile */
+  .video-testimonials {
+    padding: 24px 16px;
+  }
+  
+  .video-testimonial {
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Stats Section Mobile */
+  .stats-section {
+    padding: 40px 16px;
+  }
+  
+  .stats-grid {
+    gap: 16px;
+  }
+  
+  .stat-card {
+    padding: 20px;
+  }
+  
+  .stat-number {
+    font-size: 36px;
+  }
+  
+  .stat-text {
+    font-size: 13px;
+  }
+  
+  /* FAQ Section Mobile */
+  .faq-section {
+    padding: 40px 16px;
+  }
+  
+  .faq-title {
+    font-size: 24px;
+  }
+  
+  .faq-question {
+    padding: 16px;
+    font-size: 14px;
+  }
+  
+  .faq-answer {
+    padding: 0 16px 16px;
+    font-size: 13px;
+  }
+  
+  /* Footer Mobile */
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+  
+  .footer-column:first-child {
+    align-items: center;
+  }
+  
+  .footer-socials {
+    justify-content: center;
+  }
+  
+  /* Absorption Section Mobile */
+  .absorption-section {
+    padding: 40px 16px;
+  }
+  
+  .absorption-title {
+    font-size: 20px;
+  }
+  
+  /* Comparison Section Mobile */
+  .comparison-toggle {
+    gap: 6px;
+  }
+  
+  .toggle-btn {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+  
+  .comparison-grid {
+    gap: 12px;
+  }
+  
+  .comparison-item {
+    padding: 16px;
+  }
+  
+  /* Announcement Bar Mobile */
+  .announcement-bar {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  /* Feature Cards Mobile */
+  .feature-cards-section {
+    padding: 40px 16px;
+  }
+}
+
+/* Tablet - 750px to 1023px */
+@media (min-width: 750px) and (max-width: 1023px) {
+  .product-container {
+    gap: 32px;
+  }
+  
+  .gallery-thumbnails {
+    gap: 10px;
+  }
+  
+  .product-title {
+    font-size: 26px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
