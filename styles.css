@@ -529,7 +529,6 @@ ul, ol {
 .usp-item {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   padding: 6px 12px;
   border-radius: 999px;
   background-color: #FAFAFA;
@@ -538,15 +537,23 @@ ul, ol {
   font-size: 13px;
   font-weight: 500;
   line-height: 1;
-  color: var(--color-text);
+  color: #0f2a3d;
   white-space: nowrap;
 }
 
-.usp-item svg {
-  width: 18px;
-  height: 18px;
-  color: var(--color-accent);
-  flex-shrink: 0;
+@media (max-width: 768px) {
+  .orykas-separator {
+    margin: 12px 0 14px 0;
+  }
+  
+  .usp-badges {
+    gap: 8px;
+  }
+  
+  .usp-item {
+    font-size: 12.5px;
+    padding: 6px 10px;
+  }
 }
 
 /* Variant Selectors */
