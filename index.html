@@ -346,7 +346,11 @@
       }
     }
     @media (min-width: 1280px) {
-      .product__media-list { gap: 20px; }
+      /* At XL, media list becomes single column in right side of gallery */
+      .product__media-list { 
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 20px; 
+      }
     }
 
     /* Media item: product__media card media */
@@ -368,10 +372,42 @@
     @media (min-width: 1280px) {
       .product__media.xl-hidden { display: none; }
     }
-    .product__media img {
+    .product__media img,
+    .product__media video {
       width: 100%;
       aspect-ratio: 1;
       object-fit: cover;
+    }
+    .product__media--video {
+      position: relative;
+    }
+    .video-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background-color: rgb(var(--color-background));
+      color: rgb(var(--color-foreground));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .video-play-btn:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    .video-play-btn svg {
+      width: 20px;
+      height: 20px;
+      margin-left: 3px;
+    }
+    .product__media--video.playing .video-play-btn {
+      opacity: 0;
+      pointer-events: none;
     }
 
     /* Thumbnails: product__thumbnails lg:hidden */
@@ -406,6 +442,25 @@
       width: 100%; 
       height: 100%; 
       object-fit: cover; 
+    }
+    .product__thumbnail--video {
+      position: relative;
+    }
+    .thumbnail-play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      pointer-events: none;
     }
 
     /* ===== PRODUCT INFO - Exact match ===== */
@@ -1332,6 +1387,19 @@
                 <div class="product__media">
                   <img src="https://orykas.com/cdn/shop/files/SALLE-BAIN-US.jpg?v=1770039699&width=972" alt="Lifestyle">
                 </div>
+                <div class="product__media product__media--video">
+                  <video 
+                    playsinline 
+                    muted 
+                    loop 
+                    poster="https://orykas.com/cdn/shop/files/preview_images/1e4ad8ea1ede41759855cdf7ba1cbe16.thumbnail.0000000000.jpg?v=1755090925&width=1080"
+                  >
+                    <source src="https://cdn.shopify.com/videos/c/vp/1e4ad8ea1ede41759855cdf7ba1cbe16/1e4ad8ea1ede41759855cdf7ba1cbe16.HD-1080p-4.8Mbps-54821232.mp4" type="video/mp4">
+                  </video>
+                  <button class="video-play-btn" aria-label="Play video">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="currentColor"><path d="M34 17.5C34 18.33 33.57 19.1 32.87 19.52L9.54 33.66C9.16 33.89 8.75 34 8.33 34C7.94 34 7.54 33.9 7.18 33.69C6.45 33.27 6 32.49 6 31.64V3.36C6 2.51 6.45 1.73 7.18 1.31C7.91 0.89 8.81 0.9 9.54 1.34L32.87 15.48C33.57 15.9 34 16.67 34 17.5Z"/></svg>
+                  </button>
+                </div>
                 <div class="product__media">
                   <img src="https://orykas.com/cdn/shop/files/IMAGE3-US.jpg?v=1770039699&width=972" alt="Details">
                 </div>
@@ -1372,13 +1440,17 @@
                 <button class="product__thumbnail" data-index="4">
                   <img src="https://orykas.com/cdn/shop/files/SALLE-BAIN-US.jpg?v=1770039699&width=416" alt="">
                 </button>
-                <button class="product__thumbnail" data-index="5">
-                  <img src="https://orykas.com/cdn/shop/files/IMAGE3-US.jpg?v=1770039699&width=416" alt="">
+                <button class="product__thumbnail product__thumbnail--video" data-index="5">
+                  <img src="https://orykas.com/cdn/shop/files/preview_images/1e4ad8ea1ede41759855cdf7ba1cbe16.thumbnail.0000000000.jpg?v=1755090925&width=416" alt="">
+                  <span class="thumbnail-play-icon">▶</span>
                 </button>
                 <button class="product__thumbnail" data-index="6">
-                  <img src="https://orykas.com/cdn/shop/files/ABSORBTION-US.jpg?v=1770039699&width=416" alt="">
+                  <img src="https://orykas.com/cdn/shop/files/IMAGE3-US.jpg?v=1770039699&width=416" alt="">
                 </button>
                 <button class="product__thumbnail" data-index="7">
+                  <img src="https://orykas.com/cdn/shop/files/ABSORBTION-US.jpg?v=1770039699&width=416" alt="">
+                </button>
+                <button class="product__thumbnail" data-index="8">
                   <img src="https://orykas.com/cdn/shop/files/COULEUR-US.jpg?v=1768405379&width=416" alt="">
                 </button>
               </div>
@@ -1790,12 +1862,33 @@
         });
       });
 
-      // Video hover play
+      // Video hover play (testimonials)
       document.querySelectorAll('.testimonial-card').forEach(card => {
         const v = card.querySelector('video');
         if (v) {
           card.addEventListener('mouseenter', () => v.play());
           card.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
+        }
+      });
+
+      // Product gallery video play
+      document.querySelectorAll('.product__media--video').forEach(container => {
+        const video = container.querySelector('video');
+        const playBtn = container.querySelector('.video-play-btn');
+        if (video && playBtn) {
+          playBtn.addEventListener('click', () => {
+            if (video.paused) {
+              video.play();
+              container.classList.add('playing');
+            } else {
+              video.pause();
+              container.classList.remove('playing');
+            }
+          });
+          video.addEventListener('click', () => {
+            video.pause();
+            container.classList.remove('playing');
+          });
         }
       });
 
