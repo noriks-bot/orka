@@ -558,19 +558,19 @@ ul, ol {
 
 /* Variant Selectors */
 .variant-selector {
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .variant-header {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .variant-label {
   font-size: 14px;
-  color: var(--color-text-light);
+  color: var(--color-text);
 }
 
 .variant-value {
@@ -581,18 +581,19 @@ ul, ol {
 .size-options {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 16px;
 }
 
 .size-btn {
-  min-width: 48px;
+  min-width: 44px;
   padding: 10px 14px;
   border: 1px solid var(--color-border);
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 14px;
   font-weight: 500;
   background: #fff;
   transition: all var(--transition);
+  cursor: pointer;
 }
 
 .size-btn:hover {
