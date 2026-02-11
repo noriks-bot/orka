@@ -111,11 +111,11 @@ ul, ol {
 
 .logo-text {
   font-family: 'Inter', sans-serif;
-  font-size: 24px;
   font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--color-primary);
-  text-transform: uppercase;
+  font-size: 24px;
+  color: #171717;
+  letter-spacing: -0.5px;
+  text-decoration: none;
 }
 
 .main-nav {
@@ -1206,11 +1206,10 @@ ul, ol {
 
 .footer-logo {
   font-family: 'Inter', sans-serif;
-  font-size: 24px;
   font-weight: 700;
-  letter-spacing: 2px;
+  font-size: 24px;
   color: #fff;
-  text-transform: uppercase;
+  letter-spacing: -0.5px;
   margin-bottom: 16px;
   display: block;
 }
