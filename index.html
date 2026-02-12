@@ -1359,28 +1359,38 @@
 
     /* ===== BELOW FOLD SECTIONS ===== */
     
-    /* Video Testimonials */
+    /* Video Testimonials - PIXEL-PERFECT */
     .testimonials-section {
-      padding: 60px var(--page-padding);
+      padding: var(--sp-15) var(--page-padding); /* 62px */
       max-width: var(--page-width);
       margin: 0 auto;
+    }
+    @media (min-width: 768px) {
+      .testimonials-section {
+        padding: var(--sp-20) var(--page-padding); /* 80px */
+      }
     }
     .section-title {
       font-size: clamp(20px, 1.5rem + 0.25vw, 28px);
       font-weight: 700;
       text-align: center;
-      margin-bottom: 32px;
+      margin-bottom: var(--sp-8); /* 32px */
       color: #0f2a3d;
+    }
+    @media (min-width: 768px) {
+      .section-title {
+        margin-bottom: var(--sp-10); /* 40px */
+      }
     }
     .testimonials-carousel {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      gap: var(--sp-3); /* 12px */
     }
     @media (min-width: 768px) {
       .testimonials-carousel { 
         grid-template-columns: repeat(4, 1fr); 
-        gap: 20px; 
+        gap: var(--sp-5); /* 20px */
       }
     }
     .testimonial-card {
