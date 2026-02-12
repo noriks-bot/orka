@@ -338,12 +338,13 @@
       width: 100%;
     }
     @media (min-width: 768px) {
-      .product__gallery-container { gap: 32px; /* md:gap-8 */ }
+      .product__gallery-container { gap: var(--sp-8); /* 32px - md:gap-8 */ }
     }
     @media (min-width: 1024px) {
       .product__gallery-container { 
         position: sticky; 
-        top: var(--sp-6); /* inset-block-start:var(--sp-6) = 24px */
+        top: var(--sp-6); /* 24px - inset-block-start:var(--sp-6) */
+        transition: top 0.3s ease;
       }
     }
 
@@ -622,22 +623,29 @@
     }
     a.orykas-badge:hover { transform: scale(1.03); }
 
-    /* Product Title - EXACT from Orykas: product__title grid gap-3 */
+    /* Product Title - PIXEL-PERFECT from Orykas: product__title grid gap-3 */
     .product__title {
       display: grid;
-      gap: 12px; /* gap-3 */
+      gap: var(--sp-3); /* 12px - gap-3 EXACT */
       margin: 0;
     }
-    /* heading leading-none product-title-md */
+    /* heading leading-none product-title-md - EXACT from theme.css */
     .product__title h1,
     .heading {
       font-family: Inter, sans-serif;
-      font-size: clamp(22px, 1.5rem + 0.5vw, 32px);
+      /* product-title-md: font-size: clamp(var(--sp-10), 2.526vw, var(--sp-12)); */
+      font-size: clamp(1.375rem, 1.5rem + 0.5vw, 2rem); /* 22px to 32px */
       font-weight: 700;
       line-height: 1; /* leading-none */
       letter-spacing: -0.02em;
       color: #0f2a3d;
       margin: 0;
+    }
+    @media (min-width: 768px) {
+      .product__title h1,
+      .heading {
+        font-size: clamp(var(--sp-10), 2.526vw, var(--sp-12)); /* 40px to 48px */
+      }
     }
     /* product__text with product__text-inner flex items-center gap-2d5 */
     .product__text {
@@ -646,7 +654,7 @@
     .product__text-inner {
       display: flex;
       align-items: center;
-      gap: 10px; /* gap-2d5 = 2.5 * 4px = 10px */
+      gap: var(--sp-2d5); /* 10px - gap-2d5 EXACT */
     }
     /* text-sm leading-tight */
     .product__subtitle,
@@ -660,17 +668,18 @@
       font-weight: 700;
     }
 
-    /* Price - EXACT from Orykas */
+    /* Price - PIXEL-PERFECT from Orykas */
     .orykas-price-wrap {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
+      gap: var(--sp-3); /* 12px */
+      margin-bottom: var(--sp-3d5); /* 14px */
       flex-wrap: wrap;
     }
+    /* EXACT from theme.css: .product__price { font-size: var(--fluid-lg-to-2xl); } */
     .orykas-price {
       font-family: Inter, sans-serif;
-      font-size: 20px;
+      font-size: clamp(1.125rem, 1.052vw, 1.5rem); /* 18px to 24px - fluid-lg-to-2xl */
       font-weight: 600;
       color: #0f2a3d;
       line-height: 1.1;
@@ -688,14 +697,14 @@
       line-height: 1;
       white-space: nowrap;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       .orykas-price-wrap {
         flex-direction: row;
         align-items: center;
-        gap: 8px;
+        gap: var(--sp-2); /* 8px */
       }
-      .orykas-price { font-size: 20px; }
-      .orykas-price-badge { font-size: 11.5px; padding: 3px 8px; border-radius: 8px; }
+      .orykas-price { font-size: 18px; }
+      .orykas-price-badge { font-size: 11px; padding: 3px 8px; border-radius: 8px; }
     }
 
     /* Description */
@@ -725,14 +734,14 @@
       .orykas-separator { margin: 12px 0 14px 0; } 
     }
 
-    /* USP Pills - EXACT from Orykas */
+    /* USP Pills - PIXEL-PERFECT from Orykas */
     .orykas-usp-wrap {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: var(--sp-2d5); /* 10px */
     }
-    @media (max-width: 768px) { 
-      .orykas-usp-wrap { gap: 8px; } 
+    @media (max-width: 767px) { 
+      .orykas-usp-wrap { gap: var(--sp-2); } /* 8px */
     }
     .orykas-usp-pill {
       display: inline-flex;
@@ -748,18 +757,18 @@
       color: #0f2a3d;
       white-space: nowrap;
     }
-    @media (max-width: 768px) { 
-      .orykas-usp-pill { font-size: 12.5px; padding: 6px 10px; } 
+    @media (max-width: 767px) { 
+      .orykas-usp-pill { font-size: 12px; padding: 5px 10px; } 
     }
 
-    /* Size help link */
+    /* Size help link - PIXEL-PERFECT */
     .size-help-link {
-      margin: var(--sp-4) 0;
+      margin: var(--sp-4) 0; /* 16px */
     }
     .size-help-link a {
       display: inline-flex;
       align-items: center;
-      gap: var(--sp-2);
+      gap: var(--sp-2); /* 8px */
       font-size: 14px;
       color: rgb(var(--color-foreground));
       text-decoration: underline;
@@ -771,6 +780,11 @@
     }
     .size-help-link svg {
       flex-shrink: 0;
+    }
+    
+    /* Accessory Section - PIXEL-PERFECT */
+    .accessory-section {
+      margin-top: var(--sp-6); /* 24px */
     }
 
     /* ===== BUNDLE SELECTOR - Kaching Bundles PIXEL-PERFECT from config ===== */
@@ -1209,13 +1223,13 @@
       display: none;
     }
 
-    /* ===== FAQ Accordion - EXACT from Orykas ===== */
+    /* ===== FAQ Accordion - PIXEL-PERFECT from Orykas ===== */
     .product__accordions {
-      margin-top: var(--sp-4);
+      margin-top: var(--sp-4); /* 16px */
     }
     .product__accordion {
       border-top: 1px solid rgba(var(--color-border), 0.1);
-      padding: var(--sp-4) 0;
+      padding: var(--sp-4) 0; /* 16px */
     }
     .product__accordion.with-border {
       border-top: 1px solid rgba(var(--color-border), 0.1);
@@ -1223,13 +1237,15 @@
     .product__accordion:last-child {
       border-bottom: 1px solid rgba(var(--color-border), 0.1);
     }
+    /* EXACT from theme.css: .product__accordion .details__summary { padding: var(--sp-5) var(--sp-6); } */
     .details__summary {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: var(--sp-2);
+      gap: var(--sp-2); /* 8px */
       cursor: pointer;
       list-style: none;
+      padding: 0;
     }
     .details__summary::-webkit-details-marker {
       display: none;
@@ -1237,7 +1253,7 @@
     .details__summary-inner {
       display: flex;
       align-items: center;
-      gap: var(--sp-2d5);
+      gap: var(--sp-2d5); /* 10px */
     }
     .details__summary .icon-plus-2 {
       width: 12px;
@@ -1245,26 +1261,30 @@
       flex-shrink: 0;
       transition: transform 0.3s ease;
     }
+    @media (min-width: 1024px) {
+      .details__summary .icon-plus-2 {
+        width: var(--sp-3d5); /* 14px */
+        height: var(--sp-3d5);
+      }
+    }
     details[open] .details__summary .icon-plus-2 {
       transform: rotate(45deg);
     }
-    .details__summary-text {
+    .details__summary-text,
+    .text-sm-base {
       font-size: 14px;
       font-weight: 500;
       line-height: 1;
     }
-    /* text-sm-base = ~14-15px */
+    /* text-sm-base = clamp(0.875rem, 0.789vw, 0.9375rem) - EXACT */
     .text-sm-base {
       font-size: clamp(0.875rem, 0.789vw, 0.9375rem);
     }
     .details__content {
-      padding-top: var(--sp-3);
+      padding-top: var(--sp-3); /* 12px */
       font-size: 14px;
       line-height: 1.5;
       color: rgba(var(--color-foreground), 0.7);
-    }
-    .details__content.rte {
-      /* rich text editor styles */
     }
     .text-opacity {
       opacity: 0.8;
