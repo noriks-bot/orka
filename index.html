@@ -431,7 +431,8 @@
       flex-shrink: 0;
       position: relative;
       overflow: hidden;
-      border-radius: var(--rounded-card);
+      border-radius: var(--rounded-card); /* clamp(10px, 1.053vw, 20px) */
+      background-color: rgb(var(--color-placeholder, 245 245 245));
     }
     /* Mobile slider behavior */
     .product__media {
@@ -441,6 +442,8 @@
     @media (min-width: 1024px) {
       .product__media { 
         flex: none;
+        /* EXACT from theme.css */
+        border-radius: var(--card-radius);
       }
     }
     .product__media img,
@@ -449,9 +452,19 @@
       aspect-ratio: 1;
       object-fit: cover;
     }
-    /* Aspect ratio for media items */
+    /* Aspect ratio for media items - EXACT from theme.css */
     .media--adapt_first {
       aspect-ratio: var(--aspect-ratio, 1);
+    }
+    
+    /* Preview image hover effect - EXACT from theme.css */
+    @media (min-width: 1024px) {
+      .product__media img {
+        transition: transform 0.3s ease;
+      }
+      .product__media:hover img {
+        transform: scale(1.02);
+      }
     }
     .product__media--video {
       position: relative;
@@ -485,29 +498,32 @@
       pointer-events: none;
     }
 
-    /* Thumbnails: product__thumbnails lg:hidden */
+    /* Thumbnails: product__thumbnails lg:hidden - PIXEL-PERFECT */
     .product__thumbnails {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-      gap: 16px;
-      padding: 16px 0;
+      gap: var(--sp-4); /* 16px */
+      padding: var(--sp-4) 0; /* 16px */
       align-items: end;
       justify-content: start;
     }
     @media (min-width: 1024px) { 
       .product__thumbnails { display: none; } 
     }
+    /* EXACT from theme.css: .product__thumbnail { width: var(--sp-23); } = 92px */
     .product__thumbnail {
       position: relative;
       overflow: hidden;
-      border-radius: 10px;
+      border-radius: var(--sp-2d5); /* 10px */
       border: 2px solid transparent;
       opacity: 0.6;
       transition: all 0.2s ease;
       cursor: pointer;
       aspect-ratio: 1;
       background: none;
+      width: var(--sp-15); /* 60px mobile, theme uses var(--sp-23) = 92px on desktop but we hide on lg */
     }
+    /* EXACT from theme.css: --tw-ring-color with aria-current=true */
     .product__thumbnail[aria-current="true"] { 
       border-color: rgb(var(--color-foreground)); 
       opacity: 1; 
@@ -1154,9 +1170,9 @@
       z-index: 1;
     }
 
-    /* Reassurance Slider - EXACT from Orykas */
+    /* Reassurance Slider - PIXEL-PERFECT from Orykas */
     .orykas-swipe-slider {
-      margin-top: 14px;
+      margin-top: var(--sp-3d5); /* 14px */
       border-radius: 999px;
       background: rgba(15, 42, 61, 0.04);
       border: 1px solid rgba(15, 42, 61, 0.08);
@@ -1191,6 +1207,8 @@
       align-items: center;
       will-change: transform;
       transform: translate3d(0,0,0);
+      /* EXACT animation from Orykas */
+      transition: transform 720ms cubic-bezier(.18, .95, .22, 1);
     }
     .orykas-swipe-slide,
     .orykas-swipe-item {
